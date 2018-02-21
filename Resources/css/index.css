@@ -1,7 +1,8 @@
 html {
   height: 100%;
 }
-body{
+
+body {
   /*
   Background from Unsplash.com all rights go to their respective owner https://unsplash.com/@jplenio
   */
@@ -10,6 +11,9 @@ body{
   background-position: center;
   font-family: 'Quattrocento', serif;
   color: #fff;
+  position: relative;
+  padding-bottom: 8rem;
+  min-height: 100%;
 }
 
 .navbar-dark {
@@ -23,12 +27,24 @@ button {
 #content {
   text-align: center;
   padding-top: 25%;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-              0px 8px 13px rgba(0,0,0,0.2),
-              0px 18px 23px rgba(0,0,0,0.1);
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.2), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
-.popForm { 
-  margin:0 auto 0 auto;
+
+#content .left {
+  text-align: left;
+}
+
+#sidebar h4 {
+  color: #5F1697;
+}
+
+#sidebar h4,
+#sidebar h2 {
+  text-transform: uppercase;
+}
+
+.popForm {
+  margin: 0 auto 0 auto;
   display: float;
   padding-top: 25%;
 }
@@ -40,51 +56,59 @@ hr {
   width: 450px;
   max-width: 90%;
   border-top: 1px solid #f8f8f8;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
 h1 {
   font-weight: 700;
   font-size: 5em;
 }
+
+#full {
+  width: 80%;
+}
+
 .secondary {
   color: #ddd;
   font-size: 0.5em;
   margin-top: 1px;
 }
+
 .modal {
   color: black;
 }
 
-.footer{
+.footer {
   position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   text-align: center;
+  height: auto;
+  background-color: #0C1434;
 }
 
-.center .navbar-inner {
-  text-align: center;
-}
-.navbar.center .navbar-nav {
-  float: center;
-  text-align: center;
-}
-
-input.valid{
+input.valid {
   border: 1px solid #95FF4D;
-  text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
 
 .error {
-  text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-input.error, textarea.error{
+
+input.error,
+textarea.error {
   border: 1px solid #FF3B3B;
 }
-input:focus,textarea:focus{
+
+input:focus,
+textarea:focus {
   outline: none !important;
 }
+
 label.error {
   color: #FF3B3B;
 }
