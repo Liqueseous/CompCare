@@ -16,6 +16,7 @@
     crossorigin="anonymous">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/hover-min.css">
   <link rel="stylesheet" href="./resources/css/index.css">
   <link rel="stylesheet" href="./resources/css/pages.css">
 
@@ -61,42 +62,61 @@
         </div>
       </div>
     </nav>
-
-    <div class="header">
-      <div class="group">
-        <h1>Contact</h1>
-        <div class="group2">
-          <p>
-            <i class="fas fa-arrow-circle-down"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div id="content" class="row main">
-        <div class="col-lg-9">
-          LEFT COLUMN TEST
-        </div>
-        <div class="col-md-3" id="sidebar">
-          <h2>Contact Us</h2>
-          <div>
-            <h4>Email</h4>
-            <p>ryan@delosh.net</p>
-          </div>
-          <div>
-            <h4>Telephone</h4>
-            <p>(999)-098-1234</p>
-          </div>
-          <div>
-            <h4>Address</h4>
-            <p>CompCare</p>
-            <p>1 Univeristy Avenue</p>
-            <p>Lowell, MA 01851</p>
+    <!-- HEADER SECTION -->
+    <section>
+      <div class="header">
+        <div class="group">
+          <h1>Contact</h1>
+          <div class="group2">
+            <a href="#" class="scroll hvr-hang">
+              <i class="fas fa-arrow-circle-down"></i>
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- CONTENT SECTION -->
+    <section id="section">
+      <div class="container">
+        <div id="content" class="row main">
+          <div class="col-lg-9 col-md-9">
+            LEFT COLUMN TEST
+          </div>
+          <div class="col-lg-3 col-md-3" id="sidebar">
+            <h2>Contact Us</h2>
+            <div>
+              <h4>Email</h4>
+              <p>ryan@delosh.net</p>
+            </div>
+            <div>
+              <h4>Telephone</h4>
+              <p>(999)-098-1234</p>
+            </div>
+            <div>
+              <h4>Address</h4>
+              <p>CompCare</p>
+              <p>1 Univeristy Avenue</p>
+              <p>Lowell, MA 01851</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-3">
+              <a href="privacy.html" class="nav-link text-muted">Privacy</a>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="contact.html" class="nav-link text-muted">Contact Us</a>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="index.html" class="nav-link text-muted">&copy; 2018 CompCare Inc.</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
@@ -175,26 +195,11 @@
       </div>
     </div>
 
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-3">
-            <a href="privacy.html" class="nav-link text-muted">Privacy</a>
-          </div>
-          <div class="col-md-4 col-sm-3">
-            <a href="contact.html" class="nav-link text-muted">Contact Us</a>
-          </div>
-          <div class="col-md-4 col-sm-3">
-            <a href="index.html" class="nav-link text-muted">&copy; 2018 CompCare Inc.</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"></script>
@@ -202,7 +207,7 @@
       crossorigin="anonymous"></script>
 
     <!-- custom scripts -->
-    <script src="./js/formValidation.js" type="text/javascript"></script>
+    <script src="./js/main.js" type="text/javascript"></script>
   </body>
 
 </html>
