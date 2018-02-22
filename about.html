@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CompCare/Contact</title>
+  <meta name="description" content="Purrfect Match Made Online">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/index.css">
+  <link rel="stylesheet" href="./resources/css/pages.css">
+
+  <body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- MY NAVBAR -->
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-expand-md fixed-top">
+      <div class="container">
+        <!-- https://fontawesome.com/ -->
+        <a href="index.html" class="navbar-brand">
+          <img src="./resources/logo/CompCar-logo" width="30" height="30" class="d-inline-block align-top" alt="CompCareLogo"> CompCare
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-nav-demo" aria-controls="navbarTogglerDemo02"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="bs-nav-demo">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link active">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <!-- <li class="nav-item">
+              <a href="#" class="nav-link" data-toggle="modal" data-target="#signUpModal">Sign Up
+                <i class="fas fa-user-plus"></i>
+              </a>
+            </li> -->
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Login
+                <i class="fas fa-user"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header">
+      <div class="group">
+        <h1>About Us</h1>
+        <div class="group2">
+          <p>
+            <i class="fas fa-arrow-circle-down"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="content" class="main">
+          <!-- PUT ABOUT PAGE CONTENT HERE -->
+          ABOUT US INFORMATION GOES HERE
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <form id="loginForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalTitle">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberEmail">
+                <label class="form-check-label" for="rememberEmail">Remember Me</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" id="loginSubmit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpnModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <form id="signUpForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signUpModalTitle">Signup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="email2">Confirm Email address</label>
+                <input type="email" class="form-control" id="email2" name="email2" aria-describedby="emailHelp" placeholder="Re-Enter email">
+              </div>
+              <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="pass2">Confirm Password</label>
+                <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Re-Enter Password">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" id="signUpSubmit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-3">
+            <a href="privacy.html" class="nav-link text-muted">Privacy</a>
+          </div>
+          <div class="col-md-4 col-sm-3">
+            <a href="contact.html" class="nav-link text-muted">Contact Us</a>
+          </div>
+          <div class="col-md-4 col-sm-3">
+            <a href="index.html" class="nav-link text-muted">&copy; 2018 CompCare Inc.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+
+    <!-- custom scripts -->
+    <script src="./js/formValidation.js" type="text/javascript"></script>
+  </body>
+
+</html>
