@@ -55,6 +55,26 @@ $(document).ready(function () {
     }
   });
 
+  $('#contactForm').validate({ // initialize the plugin
+    rules: {
+      name: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      message: {
+        required: true,
+      }
+    },
+    submitHandler: function (form) {
+      preventDefault(e);
+      alert("loginEvent");
+      form.submit();
+    }
+  });
+
   jQuery.fn.extend({
     scrollTo : function(speed, easing) {
       return this.each(function() {

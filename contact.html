@@ -80,18 +80,42 @@
     <section id="section">
       <div class="container">
         <div id="content" class="row main">
-          <div class="col-lg-9 col-md-9">
-            LEFT COLUMN TEST
+          <div class="col-md-8 col-sm-6">
+            <!-- contact form submission  https://sendgrid.com/solutions/email-api/ Need Node server setup first -->
+            <!-- START CONTACT FORM -->
+            <form action="" method="post" id="contactForm">
+              <div class="form-group row">
+                <div class="col">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Full Name">
+                </div>
+                <div class="col">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <label for="message">Message</label>
+                  <textarea type="message" class="form-control" id="message" name="message" placeholder="New Message"></textarea>
+                  <small class="text-muted">All fields are required</small>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" id="loginSubmit">Submit</button>
+              </div>
+            </form>
+            <!-- END OF CONTACT FORM -->
           </div>
-          <div class="col-lg-3 col-md-3" id="sidebar">
+          <div class="col-sm-4" id="sidebar">
             <h2>Contact Us</h2>
             <div>
               <h4>Email</h4>
-              <p>ryan@delosh.net</p>
+              <p><a href="mailto:support@delosh.net">support@delosh.net</a></p>
             </div>
             <div>
               <h4>Telephone</h4>
-              <p>(999)-098-1234</p>
+              <p><a href="tel:+9990981234">(999)-098-1234</a></p>
             </div>
             <div>
               <h4>Address</h4>
@@ -105,13 +129,13 @@
       <div class="foot">
         <div class="container">
           <div class="row">
-            <div class="col-md-4 col-sm-3">
+            <div class="col-md-4 col-sm-4">
               <a href="privacy.html" class="nav-link text-muted">Privacy</a>
             </div>
-            <div class="col-md-4 col-sm-3">
+            <div class="col-md-4 col-sm-4">
               <a href="contact.html" class="nav-link text-muted">Contact Us</a>
             </div>
-            <div class="col-md-4 col-sm-3">
+            <div class="col-md-4 col-sm-4">
               <a href="index.html" class="nav-link text-muted">&copy; 2018 CompCare Inc.</a>
             </div>
           </div>

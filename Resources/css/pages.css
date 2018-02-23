@@ -4,6 +4,11 @@ body {
   background-color: #fff;
 }
 
+textarea {
+  min-height: 200px;
+  height: 25%;
+}
+
 .header {
   background-image: url(../background/background-jplenio.jpeg);
   height: 100%;
@@ -55,8 +60,23 @@ body {
 #content.main,
 #sidebar {
   text-align: left;
+  margin-bottom: 0;
 }
 
 #sidebar p {
   line-height: 0.3em
+}
+
+#sidebar {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+#sidebar a {
+  color: #000;
+}
+
+#contactForm {
+  width: 100%;
 }
