@@ -26,7 +26,7 @@ section {
 }
 
 section #content {
-  height: 100vh;
+  height: 100%;
 }
 
 hr {

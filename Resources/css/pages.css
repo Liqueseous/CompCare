@@ -38,7 +38,7 @@ textarea {
   left: 0;
   font-size: 3rem;
   max-height: 3rem;
-  
+
 }
 
 .group2 a:focus,
@@ -80,4 +80,51 @@ textarea {
 
 #contactForm {
   width: 100%;
+}
+
+h3{
+  color: #ffffff;
+  display: inline;
+  float: left;
+  white-space: nowrap;
+}
+
+.dark-bg{
+  background-color: #001122;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  background-color: #001122;
+  border: 0px;
+  margin: 0 auto;
+  margin-top: 50px;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.card-title, .card-text, .card-quote, .card-intro{
+  color: #ffffff;
+}
+
+.card-intro{
+  font-style: italic;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+.card-title{
+  text-align: center;
+  text-shadow: 1px 1px #000000;
+}
+
+.card-text{
+  text-align: justify;
+  height:15em;
+}
+
+.card-quote{
+  font-size: 14px;
+  font-style: italic;
 }
