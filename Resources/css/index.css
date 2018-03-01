@@ -16,19 +16,21 @@ body {
   position: relative;
   min-height: 100%;
 }
-
+/* IS A COMMENT EVEN NEEDED? */
 button {
   background-color: #fff;
 }
-
+/* SECTION SHOULD BE THE HEIGHT OF THE WINDOW */
 section {
   height: 100vh;
 }
 
+/* CONTENT SECTION WILL BE AS BIG AS IT NEEDS TO FIT ITS CONTENT */
 section #content {
   height: 100%;
 }
 
+/* WE NEED WHITE LINES! FOR SEPARATION */
 hr {
   background-color: white;
   border-color: white;
@@ -44,6 +46,7 @@ h1 {
   font-size: 5em;
 }
 
+/* MAIN CONTENT SECTION */
 #content {
   margin-top: 25%;
   text-align: center;
@@ -53,6 +56,7 @@ h1 {
   text-align: left;
 }
 
+/* SIDEBAR HEADERS */
 #sidebar h4,
 #sidebar h2 {
   text-transform: uppercase;
@@ -64,12 +68,14 @@ h1 {
   font-weight: 600;
 }
 
+/* POPUP FORM */
 .popForm {
   margin: 0 auto 0 auto;
   display: float;
   padding-top: 25%;
 }
 
+/* NAVBAR BACKGROUND */
 .navbar-dark {
   background-color: #0C1434;
 }
@@ -78,6 +84,7 @@ h1 {
   width: 80%;
 }
 
+/* FOOTER */
 .foot {
   position: absolute;
   right: 0;
@@ -90,22 +97,26 @@ h1 {
   white-space: nowrap;
 }
 
+/* SECONDARY HELP TEXT */
 .secondary {
   color: #ddd;
   font-size: 0.5em;
   margin-top: 1px;
 }
 
+/* POPUP MODAL TEXT COLOR */
 .modal {
   color: black;
 }
 
+/* IS FORM INPUT VALID? */
 input.valid {
   border: 1px solid #95FF4D;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
 
+/* IS FORM INPUT INVALID? */
 .error {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }

@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // LOGIN FORM VALIDATION
   $('#loginForm').validate({ // initialize the plugin
     rules: {
       email: {
@@ -12,10 +13,12 @@ $(document).ready(function () {
       }
     },
     submitHandler: function (form) {
-      alert("loginEvent");
+      alert("LOGIN EVENT");
       form.submit();
     }
   });
+
+  // SIGNUP FORM VALIDATION
   $('#signUpForm').validate({ // initialize the plugin
     rules: {
       name: {
@@ -42,7 +45,7 @@ $(document).ready(function () {
     },
     submitHandler: function (form) {
       form.preventDefault();
-      alert("loginEvent");
+      alert("SIGNUP EVENT");
       form.submit();
     },
     messages: {
@@ -54,7 +57,7 @@ $(document).ready(function () {
       }
     }
   });
-
+  // CONTACT FORM VALIDATION
   $('#contactForm').validate({ // initialize the plugin
     rules: {
       name: {
@@ -70,11 +73,11 @@ $(document).ready(function () {
     },
     submitHandler: function (form) {
       preventDefault(e);
-      alert("loginEvent");
+      alert("EMAIL SENT EVENT");
       form.submit();
     }
   });
-
+// ADD A SCROLL TO ELEMENT FUNCTION ON CLICK
   jQuery.fn.extend({
     scrollTo : function(speed, easing) {
       return this.each(function() {
