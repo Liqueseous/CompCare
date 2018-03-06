@@ -13,7 +13,6 @@ $(document).ready(function () {
       }
     },
     submitHandler: function (form) {
-      alert("LOGIN EVENT");
       form.submit();
     }
   });
@@ -31,7 +30,7 @@ $(document).ready(function () {
       email2: {
         required: true,
         email: true,
-        equalTo: "#email"
+        equalTo: "#signUpForm #email"
       },
       pass: {
         required: true,
@@ -40,12 +39,10 @@ $(document).ready(function () {
       pass2: {
         required: true,
         minlength: 8,
-        equalTo: "#pass"
+        equalTo: "#signUpForm #pass"
       }
     },
     submitHandler: function (form) {
-      form.preventDefault();
-      alert("SIGNUP EVENT");
       form.submit();
     },
     messages: {
@@ -77,6 +74,25 @@ $(document).ready(function () {
       form.submit();
     }
   });
+
+// SIGNUP FORM SUBMIT
+  $("#signUpForm").on('submit', function() {
+    $.post('http://localhost:8000/user/signup',
+    {
+      email: $("#signUpForm #email").val(),
+      password: $("#signUpForm #pass").val()
+    });
+  });
+
+// LOGIN FORM SUBMIT
+  $("#loginForm").on('submit', function() {
+    $.post('http://localhost:8000/user/login',
+    {
+      email: $("#loginForm #email").val(),
+      password: $("#loginForm #pass").val()
+    });
+  });
+
 // ADD A SCROLL TO ELEMENT FUNCTION ON CLICK
   jQuery.fn.extend({
     scrollTo : function(speed, easing) {
