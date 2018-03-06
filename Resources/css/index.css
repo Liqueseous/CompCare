@@ -1,36 +1,47 @@
-
 /* GENERIC CSS PAGE ACROSS ALL PAGES */
+
 html {
   height: 100%;
 }
 
 body {
+  background-color: #000;
+  font-family: 'Quattrocento', serif;
+  color: #fff;
+  position: relative;
+  min-height: 100%;
+}
+
+.back {
   /*
   Background from Unsplash.com all rights go to their respective owner https://unsplash.com/@jplenio
   */
   background-image: url("../background/background-jplenio.jpeg");
   background-size: cover;
   background-position: center;
-  font-family: 'Quattrocento', serif;
-  color: #fff;
-  position: relative;
-  min-height: 100%;
 }
+
 /* IS A COMMENT EVEN NEEDED? */
+
 button {
   background-color: #fff;
 }
+
 /* SECTION SHOULD BE THE HEIGHT OF THE WINDOW */
+
 section {
   height: 100vh;
+
 }
 
 /* CONTENT SECTION WILL BE AS BIG AS IT NEEDS TO FIT ITS CONTENT */
+
 section #content {
   height: 100%;
 }
 
 /* WE NEED WHITE LINES! FOR SEPARATION */
+
 hr {
   background-color: white;
   border-color: white;
@@ -47,6 +58,7 @@ h1 {
 }
 
 /* MAIN CONTENT SECTION */
+
 #content {
   margin-top: 25%;
   text-align: center;
@@ -57,6 +69,7 @@ h1 {
 }
 
 /* SIDEBAR HEADERS */
+
 #sidebar h4,
 #sidebar h2 {
   text-transform: uppercase;
@@ -69,6 +82,7 @@ h1 {
 }
 
 /* POPUP FORM */
+
 .popForm {
   margin: 0 auto 0 auto;
   display: float;
@@ -76,6 +90,7 @@ h1 {
 }
 
 /* NAVBAR BACKGROUND */
+
 .navbar-dark {
   background-color: #0C1434;
 }
@@ -83,13 +98,16 @@ h1 {
 #full {
   width: 80%;
 }
+
 #loader {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
+  text-align: center;
+  margin: auto auto;
+  margin-top: 25%;
+  width: 250px;
 }
 
 /* FOOTER */
+
 .foot {
   position: absolute;
   right: 0;
@@ -103,6 +121,7 @@ h1 {
 }
 
 /* SECONDARY HELP TEXT */
+
 .secondary {
   color: #ddd;
   font-size: 0.5em;
@@ -110,11 +129,13 @@ h1 {
 }
 
 /* POPUP MODAL TEXT COLOR */
+
 .modal {
   color: black;
 }
 
 /* IS FORM INPUT VALID? */
+
 input.valid {
   border: 1px solid #95FF4D;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
@@ -122,6 +143,7 @@ input.valid {
 }
 
 /* IS FORM INPUT INVALID? */
+
 .error {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }

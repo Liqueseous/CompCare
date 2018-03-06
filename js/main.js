@@ -1,3 +1,14 @@
+// LOTTIE FILES
+var preloader = bodymovin.loadAnimation({
+  container: document.getElementById('preloader'), // Required
+  path: '../resources/lottie/ripple_loading_animation.json', // Required
+  renderer: 'svg', // Required
+  loop: true, // Optional
+  autoplay: true, // Optional
+  name: "Preloader", // Name for future reference. Optional.
+});
+
+// DOCUMENT INFORMATION HAS BEEN RECEIVED
 $(document).ready(function () {
 
   // LOGIN FORM VALIDATION
@@ -108,4 +119,13 @@ $(document).ready(function () {
   $(".scroll").click(function (event) {
     $('#section').scrollTo(900, 'easeInOutQuint');
   });
+
+});
+
+//ALL CONTENT CON PAGE HAS LOADED
+$(window).on('load', function () {
+  $('#loader').hide();
+  $('#pagecontent').show();
+  $('body').addClass('back');
+  preloader.stop();
 });
