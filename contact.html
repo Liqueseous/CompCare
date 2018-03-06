@@ -12,10 +12,12 @@
   <title>CompCare/Contact</title>
   <meta name="description" content="Purrfect Match Made Online">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/hover-min.css">
   <link rel="stylesheet" href="./resources/css/index.css">
   <link rel="stylesheet" href="./resources/css/pages.css">
 
@@ -27,8 +29,8 @@
     <nav class="navbar navbar-dark navbar-expand-lg navbar-expand-md fixed-top">
       <div class="container">
         <!-- https://fontawesome.com/ -->
-        <a href="index.html" class="navbar-brand">
-          <img src="./resources/logo/CompCar-logo" width="30" height="30" class="d-inline-block align-top" alt="CompCareLogo"> CompCare
+        <a href="index.html" class="navbar-brand hvr-grow">
+          <img src="./resources/logo/CompCar-logo.png" width="30" height="30" class="d-inline-block align-top" alt="CompCareLogo"> CompCare
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-nav-demo" aria-controls="navbarTogglerDemo02"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -37,23 +39,23 @@
         <div class="collapse navbar-collapse" id="bs-nav-demo">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a href="index.html" class="nav-link">Home</a>
+              <a href="index.html" class="nav-link hvr-grow">Home</a>
             </li>
             <li class="nav-item">
-              <a href="about.html" class="nav-link">About</a>
+              <a href="about.html" class="nav-link hvr-grow">About</a>
             </li>
             <li class="nav-item">
-              <a href="contact.html" class="nav-link active">Contact</a>
+              <a href="contact.html" class="nav-link active hvr-grow">Contact</a>
             </li>
           </ul>
           <ul class="navbar-nav navbar-right">
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a href="#" class="nav-link" data-toggle="modal" data-target="#signUpModal">Sign Up
                 <i class="fas fa-user-plus"></i>
               </a>
-            </li> -->
+            </li>
             <li class="nav-item">
-              <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Login
+              <a href="#" class="nav-link hvr-grow" data-toggle="modal" data-target="#loginModal">Login
                 <i class="fas fa-user"></i>
               </a>
             </li>
@@ -61,43 +63,92 @@
         </div>
       </div>
     </nav>
-
-    <div class="header">
-      <div class="group">
-        <h1>Contact</h1>
-        <div class="group2">
-          <p>
-            <i class="fas fa-arrow-circle-down"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div id="content" class="row main">
-        <div class="col-lg-9">
-          LEFT COLUMN TEST
-        </div>
-        <div class="col-md-3" id="sidebar">
-          <h2>Contact Us</h2>
-          <div>
-            <h4>Email</h4>
-            <p>ryan@delosh.net</p>
-          </div>
-          <div>
-            <h4>Telephone</h4>
-            <p>(999)-098-1234</p>
-          </div>
-          <div>
-            <h4>Address</h4>
-            <p>CompCare</p>
-            <p>1 Univeristy Avenue</p>
-            <p>Lowell, MA 01851</p>
+    <!-- END NAVBAR -->
+    <!-- HEADER SECTION -->
+    <section>
+      <div class="header">
+        <div class="group">
+          <h1>Contact</h1>
+          <div class="group2">
+            <a href="#" class="scroll hvr-hang">
+              <i class="fas fa-arrow-circle-down"></i>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-
+    </section>
+    <!-- END HEADER SECTION -->
+    <!-- CONTENT SECTION -->
+    <section id="section">
+      <div class="container">
+        <div id="content" class="row main">
+          <div class="col-md-8 col-sm-6">
+            <!-- contact form submission  https://sendgrid.com/solutions/email-api/ Need Node server setup first -->
+            <!-- START CONTACT FORM -->
+            <form action="" method="post" id="contactForm">
+              <div class="form-group row">
+                <div class="col">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Full Name">
+                </div>
+                <div class="col">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <label for="message">Message</label>
+                  <textarea type="message" class="form-control" id="message" name="message" placeholder="New Message"></textarea>
+                  <small class="text-muted">All fields are required</small>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary hvr-back-pulse" id="loginSubmit">Submit</button>
+              </div>
+            </form>
+            <!-- END OF CONTACT FORM -->
+          </div>
+          <div class="col-sm-4" id="sidebar">
+            <h2>Contact Us</h2>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:support@delosh.net">support@delosh.net</a></p>
+            </div>
+            <div>
+              <h4>Telephone</h4>
+              <p><a href="tel:+9990981234">(999)-098-1234</a></p>
+            </div>
+            <div>
+              <h4>Address</h4>
+              <p>CompCare</p>
+              <p>1 Univeristy Avenue</p>
+              <p>Lowell, MA 01851</p>
+            </div>
+          </div>
+        </div>
+        <!-- END ROW -->
+      </div>
+      <!-- END CONTAINER -->
+      <!-- BEGIN FOOTER -->
+      <div class="foot">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
+              <a href="privacy.html" class="nav-link text-muted hvr-grow">Privacy</a>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <a href="contact.html" class="nav-link text-muted hvr-grow">Contact Us</a>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <a href="index.html" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END FOOTER -->
+    </section>
+    <!-- END CONTENT SECTION -->
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -126,7 +177,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary" id="loginSubmit">Submit</button>
+              <button class="btn btn-primary hvr-back-pulse" id="loginSubmit ">Submit</button>
             </div>
           </form>
         </div>
@@ -168,41 +219,26 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary" id="signUpSubmit">Submit</button>
+              <button class="btn btn-primary hvr-back-pulse" id="signUpSubmit">Submit</button>
             </div>
           </form>
         </div>
       </div>
     </div>
 
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-3">
-            <a href="privacy.html" class="nav-link text-muted">Privacy</a>
-          </div>
-          <div class="col-md-4 col-sm-3">
-            <a href="contact.html" class="nav-link text-muted">Contact Us</a>
-          </div>
-          <div class="col-md-4 col-sm-3">
-            <a href="index.html" class="nav-link text-muted">&copy; 2018 CompCare Inc.</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
+    <!-- JQUERY EFFECTS EASING PLUGIN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- JQUERY VALIDATION PLUGIN -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"></script>
-
-    <!-- custom scripts -->
-    <script src="./js/formValidation.js" type="text/javascript"></script>
   </body>
 
 </html>
