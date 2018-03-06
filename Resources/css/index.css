@@ -83,6 +83,11 @@ h1 {
 #full {
   width: 80%;
 }
+#loader {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
 
 /* FOOTER */
 .foot {

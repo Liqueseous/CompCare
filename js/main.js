@@ -95,16 +95,17 @@ $(document).ready(function () {
 
 // ADD A SCROLL TO ELEMENT FUNCTION ON CLICK
   jQuery.fn.extend({
-    scrollTo : function(speed, easing) {
-      return this.each(function() {
+    scrollTo: function (speed, easing) {
+      return this.each(function () {
         var targetOffset = $(this).offset().top;
-        $('html,body').animate({scrollTop: targetOffset}, speed, easing);
+        $('html,body').animate({
+          scrollTop: targetOffset
+        }, speed, easing);
       });
     }
   });
 
-    $(".scroll").click(function (event){
-        $('#section').scrollTo(900, 'easeInOutQuint');
-    });
+  $(".scroll").click(function (event) {
+    $('#section').scrollTo(900, 'easeInOutQuint');
+  });
 });
-
