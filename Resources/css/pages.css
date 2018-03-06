@@ -2,7 +2,6 @@
 
 body {
   background-image: none;
-  background-color: #fff;
 }
 
 textarea {
@@ -93,6 +92,11 @@ textarea {
   height: 100%;
   width: 100%;
 }
+
+.light-bg {
+  background-color: #fff;
+}
+
 /* ABOUT US CARDS */
 .card {
   background-color: #001122;
