@@ -127,7 +127,7 @@ $(document).ready(function () {
 
   // SIGNUP FORM SUBMIT
   $("#signUpForm").on('submit', function () {
-    $.post('http://localhost:8000/user/signup', {
+    $.post('https://afternoon-waters-42339.herokuapp.com/signup', {
       email: $("#signUpForm #email").val(),
       password: $("#signUpForm #pass").val()
     });
@@ -135,7 +135,7 @@ $(document).ready(function () {
 
   // LOGIN FORM SUBMIT
   $("#loginForm").on('submit', function () {
-    $.post('http://localhost:8000/user/login', {
+    $.post('https://afternoon-waters-42339.herokuapp.com/login', {
       email: $("#loginForm #email").val(),
       password: $("#loginForm #pass").val()
     });
