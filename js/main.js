@@ -119,14 +119,15 @@ $(document).ready(function () {
       }
     },
     submitHandler: function (form) {
-      preventDefault(e);
+      e.preventDefault();
       alert("EMAIL SENT EVENT");
       form.submit();
     }
   });
 
   // SIGNUP FORM SUBMIT
-  $("#signUpForm").on('submit', function () {
+  $("#signUpForm").on('submit', function (e) {
+    e.preventDefault();
     $.post('https://afternoon-waters-42339.herokuapp.com/signup', {
       email: $("#signUpForm #email").val(),
       password: $("#signUpForm #pass").val()
@@ -134,7 +135,8 @@ $(document).ready(function () {
   });
 
   // LOGIN FORM SUBMIT
-  $("#loginForm").on('submit', function () {
+  $("#loginForm").on('submit', function (e) {
+    e.preventDefault();
     $.post('https://afternoon-waters-42339.herokuapp.com/login', {
       email: $("#loginForm #email").val(),
       password: $("#loginForm #pass").val()
