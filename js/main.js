@@ -61,9 +61,6 @@ $(document).ready(function () {
         required: true,
         minlength: 8
       }
-    },
-    submitHandler: function (form) {
-      form.submit();
     }
   });
 
@@ -91,9 +88,6 @@ $(document).ready(function () {
         minlength: 8,
         equalTo: "#signUpForm #pass"
       }
-    },
-    submitHandler: function (form) {
-      form.submit();
     },
     messages: {
       email2: {
@@ -129,7 +123,8 @@ $(document).ready(function () {
   $("#signUpForm").on('submit', function (e) {
     e.preventDefault();
     $.post('https://afternoon-waters-42339.herokuapp.com/signup', {
-      email: $("#signUpForm #email").val(),
+      // May need to rework this.... along with login
+      email: $("#signUpForm #email").val(), 
       password: $("#signUpForm #pass").val()
     });
   });
@@ -138,8 +133,8 @@ $(document).ready(function () {
   $("#loginForm").on('submit', function (e) {
     e.preventDefault();
     $.post('https://afternoon-waters-42339.herokuapp.com/login', {
-      email: $("#loginForm #email").val(),
-      password: $("#loginForm #pass").val()
+      email: $("#loginForm email").val(),
+      password: $("#loginForm pass").val()
     });
   });
 
