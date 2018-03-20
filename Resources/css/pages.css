@@ -2,7 +2,6 @@
 
 body {
   background-image: none;
-  background-color: #fff;
 }
 
 textarea {
@@ -87,20 +86,17 @@ textarea {
   width: 100%;
 }
 
-/* IS THIS NEEDED?
-h3{
-  color: #ffffff;
-  display: inline;
-  float: left;
-  white-space: nowrap;
-} */
-
 /* ABOUT US BACKGROUND */
 .dark-bg {
   background-color: #001122;
   height: 100%;
   width: 100%;
 }
+
+.light-bg {
+  background-color: #fff;
+}
+
 /* ABOUT US CARDS */
 .card {
   background-color: #001122;
