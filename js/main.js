@@ -19,32 +19,24 @@ var preloader = bodymovin.loadAnimation({
 //   easing: 'linear'
 // });
 
+// SLIDE IN ANIMATION FOR FORMS
 var inEase = anime({
   targets: '#loginModal , #signUpModal',
-  translateY: -500,
-  delay: 10000,
+  translateY: -1000,
+  delay: 0,
   duration: 1000,
   direction: 'reverse',
   easing: 'easeInCubic'
 });
 
-// WORK IN PROGRESS
-var elInEase = anime({
-  targets: '#loginModal small , #loginModal input , #loginModal label , #signUpModal , #signUpModal input , #signUpModal label',
-  translateX: 200,
-  delay: 1000000,
-  duration: 500,
-  direction: 'reverse',
-  easing: 'easeInCubic'
-})
-
+// SLIDE OUT ANIMATION FOR FORMS
 var outEase = anime({
   targets: '#loginModal , #signUpModal',
-  translateY: -500,
-  delay: 10000,
+  translateY: -1000,
+  delay: 0,
   duration: 1000,
   direction: 'standard',
-  easing: 'easeInCubic'
+  easing: 'easeOutCubic'
 });
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
@@ -124,7 +116,7 @@ $(document).ready(function () {
     e.preventDefault();
     $.post('https://afternoon-waters-42339.herokuapp.com/signup', {
       // May need to rework this.... along with login
-      email: $("#signUpForm #email").val(), 
+      email: $("#signUpForm #email").val(),
       password: $("#signUpForm #pass").val()
     });
   });
@@ -150,18 +142,36 @@ $(document).ready(function () {
     }
   });
 
+  // SCROLL TO CERTAIN SECTION OF PAGE WHEN BUTTON IS CLICKED
   $(".scroll").click(function (event) {
     $('#section').scrollTo(900, 'easeInOutQuint');
   });
 
   $(".inBut").click(function (event) {
+    // FORM IN ANIMATION
     inEase.restart();
-    // elInEase.restart();
   });
   $(".outBut").click(function (event) {
+    var logForm = document.querySelector("#loginForm");
+    var signForm = document.querySelector("#loginForm");
+    var inputs = document.querySelectorAll("input.form-control")
+    // FORM OUT ANIMATION
     outEase.restart();
-    // elOutEase.restart();
+    // HIDE FORM AFTER ANIMATION
+    window.setTimeout(function () {
+      $('#loginModal').modal('hide');
+      $('#signUpModal').modal('hide');
+    }, 500);
+    // RESET FORM
+    logForm.reset();
+    // REMOVE ERRORS AND VALIDATION HIGHLIGHTING ON FIELDS
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].classList.remove("valid");
+      inputs[i].classList.remove("error");
+    }
+
   });
+
 
 });
 
