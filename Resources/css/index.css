@@ -16,7 +16,7 @@ body {
   /*
   Background from Unsplash.com all rights go to their respective owner https://unsplash.com/@jplenio
   */
-  background-image: url("../background/background-jplenio.jpeg");
+  background-image: url("https://s3.amazonaws.com/compcare-files/background/background-jplenio.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -131,6 +131,7 @@ h1 {
 
 .modal {
   color: black;
+  /* top: -1500px; */
 }
 
 /* IS FORM INPUT VALID? */

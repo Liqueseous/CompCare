@@ -34,7 +34,7 @@
         <div class="container">
           <!-- https://fontawesome.com/ -->
           <a href="index.html" class="navbar-brand hvr-grow">
-            <img src="./resources/logo/CompCar-logo.png" width="30" height="30" class="d-inline-block align-top" alt="CompCareLogo"> CompCare
+            <img src="https://s3.amazonaws.com/compcare-files/logo/CompCar-logo.png" width="30" height="30" class="d-inline-block align-top" alt="CompCareLogo"> CompCare
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-nav-demo" aria-controls="navbarTogglerDemo02"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -159,13 +159,13 @@
       <!-- END CONTENT SECTION -->
     </div>
     <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <form id="loginForm">
+          <form id="loginForm" method="post">
             <div class="modal-header">
               <h5 class="modal-title" id="loginModalTitle">Login</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close outBut" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -185,8 +185,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary outBut" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary hvr-back-pulse outBut" id="loginSubmit ">Submit</button>
+              <button type="button" class="btn btn-secondary outBut">Close</button>
+              <button class="btn btn-primary hvr-back-pulse" id="loginSubmit ">Submit</button>
             </div>
           </form>
         </div>
@@ -194,13 +194,13 @@
     </div>
 
     <!-- Signup Modal -->
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpnModal" aria-hidden="true">
+    <div class="modal" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpnModal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <form id="signUpForm">
+          <form id="signUpForm" method="post">
             <div class="modal-header">
               <h5 class="modal-title" id="signUpModalTitle">Signup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close outBut" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -228,7 +228,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary outBut" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary hvr-back-pulse outBut" id="signUpSubmit">Submit</button>
+              <button class="btn btn-primary hvr-back-pulse">Submit</button>
             </div>
           </form>
         </div>
