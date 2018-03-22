@@ -10,7 +10,7 @@ textarea {
 }
 
 .header {
-  background-image: url(../background/background-jplenio.jpeg);
+  background-image: url("https://s3.amazonaws.com/compcare-files/background/background-jplenio.jpeg");
   height: 100%;
   width: 100%;
   background-size: cover;
