@@ -1,0 +1,13 @@
+body {
+  background-image: none;
+}
+
+.back {
+  background-image: none;
+  background-color: #ddd;
+}
+
+.table {
+  background-color: #fff;
+  color: #000;
+}

@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="./resources/css/hover-min.css">
   <link rel="stylesheet" href="./resources/css/index.css">
   <link rel="stylesheet" href="./resources/css/pages.css">
+  <link rel="stylesheet" href="./resources/css/dashboard.css">
 
   <body>
     <!--[if lt IE 7]>
@@ -45,22 +46,11 @@
               <li class="nav-item">
                 <a href="index.html" class="nav-link hvr-grow">Home</a>
               </li>
-              <li class="nav-item">
-                <a href="about.html" class="nav-link active hvr-grow">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="contact.html" class="nav-link hvr-grow">Contact</a>
-              </li>
             </ul>
             <ul class="navbar-nav navbar-right">
               <li class="nav-item">
-                <a href="#" class="nav-link hvr-grow inBut" data-toggle="modal" data-target="#signUpModal">Sign Up
-                  <i class="fas fa-user-plus"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link hvr-grow inBut" data-toggle="modal" data-target="#loginModal">Login
-                  <i class="fas fa-user"></i>
+                <a href="#" class="nav-link hvr-grow">Sign Out
+                  <i class="fas fa-sign-out-alt"></i>
                 </a>
               </li>
             </ul>
@@ -68,112 +58,112 @@
         </div>
       </nav>
       <!-- END NAVBAR -->
-      <!-- HEADER SECTION -->
-
-      <!-- END HEADER SECTION -->
       <!-- CONTENT SECTION -->
 
-<div class="row dashboard">
+      <div class="dashboard container">
 
-<div class="col-sm">
-</div>
+        <div class="">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <th>
+                <td>
+                  <div class="card-style card-open card">
+                    <div class="card-title" id="openTXT">
+                      <a onclick="showOpen()" href="javascript:void(0);" style="color: #FFF">Open Orders</a>
+                    </div>
+                  </div>
 
-<div class="col-sm">
-      <div class="container">
-        <table class="table table-striped" style="background-color: #F1F1F1; color: #000;">
-          <thead>
-            <tr>
-              <th>Summary</th>
-            </tr>
-          </thead>
-          <tbody>
-            <th>
-              <td>
-              <div class="card-style card-open card">
-                <div class="card-title" id="openTXT"><a onclick="showOpen()" href="javascript:void(0);" style="color: #FFF">Open Orders</a></div>
-              </div>
-
-          </td>
-          <td>
-            <div class="card-style card-onHold card">
-              <div class="card-title" id="onHoldTXT"><a onclick="showOnHold()" href="javascript:void(0);" style="color: #FFF">On Hold Orders</a></div>
-            </div>
-        </td>
-        <td>
-          <div class="card-style card-inProgress card">
-            <div class="card-title" id="inProgressTXT"><a onclick="showInProgress()" href="javascript:void(0);" style="color: #FFF">In Progress Orders</a></div>
-          </div>
-        </td>
-        <td>
-          <div class="card-style card-closed card">
-            <div class="card-title" id="closedTXT"><a onclick="showClosed()" href="javascript:void(0);" style="color: #FFF">Closed Orders</a></div>
-          </div>
-        </td>
+                </td>
+                <td>
+                  <div class="card-style card-onHold card">
+                    <div class="card-title" id="onHoldTXT">
+                      <a onclick="showOnHold()" href="javascript:void(0);" style="color: #FFF">On Hold Orders</a>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="card-style card-inProgress card">
+                    <div class="card-title" id="inProgressTXT">
+                      <a onclick="showInProgress()" href="javascript:void(0);" style="color: #FFF">In Progress Orders</a>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="card-style card-closed card">
+                    <div class="card-title" id="closedTXT">
+                      <a onclick="showClosed()" href="javascript:void(0);" style="color: #FFF">Closed Orders</a>
+                    </div>
+                  </div>
+                </td>
         </div>
 
 
 
-      <div class="container">
-        <table class="table table-striped" style="background-color: #F1F1F1; color: #000;" id="activeOrders">
-          <thead>
-            <tr>
-              <th>Active Orders</th>
-            </tr>
-          </thead>
-          <tbody>
-            <th>Status</th>
-            <th>Cust. Name</th>
-            <th>Repair ID</th>
-            <th>Date Entered</th>
-            <th>Est. Completion Time</th>
-            <th>Technician</th>
-          </tbody>
-        </table>
-      </div>
+        <div class="">
+          <table class="table table-striped" id="activeOrders">
+            <thead>
+              <tr>
+                <th>Active Orders</th>
+              </tr>
+            </thead>
+            <tbody>
+              <th>Status</th>
+              <th>Cust. Name</th>
+              <th>Repair ID</th>
+              <th>Date Entered</th>
+              <th>Est. Completion Time</th>
+              <th>Technician</th>
+            </tbody>
+          </table>
+        </div>
 
-      <div class="container">
-        <table class="table table-striped" style="background-color: #F1F1F1; color: #000;" id="closedOrders">
-          <thead>
-            <tr>
-              <th>Closed Orders</th>
-            </tr>
-          </thead>
-          <tbody>
-            <th>Status</th>
-            <th>Cust. Name</th>
-            <th>Repair ID</th>
-            <th>Date Entered</th>
-            <th>Date Closed</th>
-            <th>Resolution Code</th>
-          </tbody>
-        </table>
-      </div>
-</div>
+        <div class="">
+          <table class="table table-striped" id="closedOrders">
+            <thead>
+              <tr>
+                <th>Closed Orders</th>
+              </tr>
+            </thead>
+            <tbody>
+              <th>Status</th>
+              <th>Cust. Name</th>
+              <th>Repair ID</th>
+              <th>Date Entered</th>
+              <th>Date Closed</th>
+              <th>Resolution Code</th>
+            </tbody>
+          </table>
+        </div>
 
-<div class="col-sm imgright2">
+        <!-- <div class="col-sm imgright2">
   <img src=./Resources/dashboard/create.png>
-</div>
+</div> -->
 
-</div>
+      </div>
       <!-- END CONTENT SECTION -->
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="foot">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 col-sm-3">
-                <a href="privacy.html" class="nav-link text-muted hvr-grow">Privacy</a>
-              </div>
-              <div class="col-md-4 col-sm-3">
-                <a href="contact.html" class="nav-link text-muted hvr-grow">Contact Us</a>
-              </div>
-              <div class="col-md-4 col-sm-3">
-                <a href="index.html" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
-              </div>
+      <!-- END CONTAINER -->
+      <!-- BEGIN FOOTER -->
+      <div class="foot">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-3">
+              <a href="privacy.html" class="nav-link text-muted hvr-grow">Privacy</a>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="contact.html" class="nav-link text-muted hvr-grow">Contact Us</a>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="index.html" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
             </div>
           </div>
         </div>
-        <!-- END FOOTER -->
+      </div>
+      <!-- END FOOTER -->
       </section>
       <!-- END CONTENT SECTION -->
     </div>
