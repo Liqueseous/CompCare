@@ -10,6 +10,12 @@ window.onload = function WindowLoad(event) {
     addClosedOrder("Actual President","012345","01/23/45","12/12/12","Completed Successfully");
 }
 
+jQuery(document).ready(function($) {
+  $(".clickable-row").click(function() {
+      window.location = $(this).data("href");
+  });
+});
+
 function showOpen()
 {
   resetActiveOrders();
@@ -42,6 +48,7 @@ function showClosed()
 function addActiveOrder(circle, customer_name, repair_id, date_entered, completion_time, tech)
 {
     var table = document.getElementById("activeOrders");
+    var link = "/ticket.html?" + repair_id;
     var row = table.insertRow(2);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -51,23 +58,26 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
     var cell6 = row.insertCell(5);
 
     if (circle == "open")
-      cell1.innerHTML = "<img src=./Resources/dashboard/circle-open.png>";
+      cell1.innerHTML = "<img src=./resources/dashboard/circle-open.svg>";
     else if (circle == "onHold")
-      cell1.innerHTML = "<img src=./Resources/dashboard/circle-onHold.png>";
+      cell1.innerHTML = "<img src=./resources/dashboard/circle-onHold.svg>";
     else if (circle == "inProgress")
-      cell1.innerHTML ="<img src=./Resources/dashboard/circle-inProgress.png>";
+      cell1.innerHTML ="<img src=./resources/dashboard/circle-inProgress.svg>";
 
     cell2.innerHTML = customer_name;
     cell3.innerHTML = repair_id;
     cell4.innerHTML = date_entered;
     cell5.innerHTML = completion_time;
     cell6.innerHTML = tech;
+    row.setAttribute("class", "clickable-row");
+    row.setAttribute("data-href", link);
 }
 
 //                      str            str        str           str          str
 function addClosedOrder(customer_name, repair_id, date_entered, date_closed, resolution_code)
 {
     var table = document.getElementById("closedOrders");
+    var link = "/ticket.html?" + repair_id;
     var row = table.insertRow(2);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -76,12 +86,14 @@ function addClosedOrder(customer_name, repair_id, date_entered, date_closed, res
     var cell5 = row.insertCell(4);
     var cell6 = row.insertCell(5);
 
-    cell1.innerHTML = "<img src=./Resources/dashboard/circle-closed.png>";
+    cell1.innerHTML = "<img src=./Resources/dashboard/circle-closed.svg>";
     cell2.innerHTML = customer_name;
     cell3.innerHTML = repair_id;
     cell4.innerHTML = date_entered;
     cell5.innerHTML = date_closed
     cell6.innerHTML = resolution_code;
+    row.setAttribute("class", "clickable-row");
+    row.setAttribute("data-href", link);
 }
 
 function resetActiveOrders()

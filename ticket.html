@@ -9,8 +9,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CompCare/Contact</title>
-  <meta name="description" content="Purrfect Match Made Online">
+  <title>CompCare/Ticket</title>
+  <meta name="description" content="compcare/ticket Computer Repair Management">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="./resources/css/hover-min.css">
   <link rel="stylesheet" href="./resources/css/index.css">
   <link rel="stylesheet" href="./resources/css/pages.css">
+  <link rel="stylesheet" href="./resources/css/dashboard.css">
 
   <body>
     <!--[if lt IE 7]>
@@ -45,22 +46,11 @@
               <li class="nav-item">
                 <a href="index.html" class="nav-link hvr-grow">Home</a>
               </li>
-              <li class="nav-item">
-                <a href="about.html" class="nav-link active hvr-grow">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="contact.html" class="nav-link hvr-grow">Contact</a>
-              </li>
             </ul>
             <ul class="navbar-nav navbar-right">
               <li class="nav-item">
-                <a href="#" class="nav-link hvr-grow inBut" data-toggle="modal" data-target="#signUpModal">Sign Up
-                  <i class="fas fa-user-plus"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link hvr-grow inBut" data-toggle="modal" data-target="#loginModal">Login
-                  <i class="fas fa-user"></i>
+                <a href="#" class="nav-link hvr-grow">Sign Out
+                  <i class="fas fa-sign-out-alt"></i>
                 </a>
               </li>
             </ul>
@@ -68,139 +58,153 @@
         </div>
       </nav>
       <!-- END NAVBAR -->
-      <!-- HEADER SECTION -->
-
-      <!-- END HEADER SECTION -->
       <!-- CONTENT SECTION -->
-      <div class="row ticket_space">
-
-      <div class="col-sm imgleft">
-        <img src=./Resources/ticket/cancel.png>
-      </div>
-
-      <div class="col-sm">
-      <div class="container">
-        <form>
-            <table class="table table-responsive" style="background-color: #F1F1F1; color: #000;" id="activeOrders">
-              <thead>
-                <tr>
-                  <th>Ticket # XXXXXXX</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>
-                    Status<br>
-                    <select name="status">
+      <div class="container ticket_space">
+        <div class="panel">
+          <div class="panel-heading">
+            <span class="panel-title">Ticket # XXXXXXX</span>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="container">
+                <div class="row">
+                  <div class="form-group col-sm-2">
+                    <img src="/resources/dashboard/circle-open.svg" alt="">
+                    <label for="status_field">Status</label>
+                    <select name="status_field" disabled="true">
                       <option value="Open">Open</option>
                       <option value="In Progress">In Progress</option>
                       <option value="On Hold">On Hold</option>
                       <option value="Closed">Closed</option>
                     </select>
-                  </th>
-                <th>
-                  Customer Name<br>
-                  <input type="text" name="customer_name" value="">
-                </th>
-                <th>
-                  Phone Number<br>
-                  <input type="text" name="phone_number" value="">
-                </th>
-                <th>
-                  Date Recieved<br>
-                  <input type="text" name="date_received" value="">
-                </th>
-                <th>
-                  Assigned To<br>
-                  <input type="text" name="assigned_to" value="">
-                </th>
-              </tr>
-              <tr>
-                <th row>
-                  Short Description<br>
-                  <input type="text" name="short_disc" value="">
-                <th>
-                <th>
-                  Computer Make/Model<br>
-                  <input type="text" name="computer_make" value="">
-                </th>
-                <th>
-                  Estimated Completion<br>
-                  <input type="text" name="est_completion" value="">
-                </th>
-                <th>
-                  Form Factor<br>
-                  <select name="form_factor">
-                    <option value="Tower">Tower</option>
-                    <option value="Laptop">Laptop</option>
-                    <option value="Single">Single</option>
-                    <option value="Mini">Mini</option>
-                  </select>
-                </th>
-              </tr>
-              <tr>
-                <th colspan="4">
-                  Issue Description<br>
-                  <textarea name="item_desc" rows="8" cols="95"></textarea>
-                </th>
-                <th rowspan="3">
-                  Location<br>
-                  <select name="location">
-                    <option value="Bay 1">Bay 1</option>
-                    <option value="Bay 2">Bay 2</option>
-                    <option value="Bay 3">Bay 3</option>
-                    <option value="Bay 4">Bay 4</option>
-                  </select>
-                  <br><br><br>
-                  Reason for Hold<br>
-                  <input type="text" name="reason_for_hold" value="">
-                  <br><br><br>
-                  Parts Needed<br>
-                  <textarea name="parts_needed" rows="21" cols="19"></textarea>
-                </th>
-              </tr>
-              <tr>
-                <th colspan="4">
-                  Initial Diagnosis<br>
-                  <textarea name="initial_diag" rows="8" cols="95"></textarea>
-                </th>
-              </tr>
-              <tr>
-                <th colspan="4">
-                  Repair Notes<br>
-                  <textarea name="repair_notes" rows="8" cols="95"></textarea>
-                </th>
-              </tr>
-              </tbody>
-            </table>
-        </form>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="customer_name">Customer Name</label>
+                    <input type="text" name="customer_name" value="" disabled="true">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="text" name="phone_number" value="" disabled="true">
+                  </div>
+                  <div class="form-group col-sm-2">
+                    <label for="date-received">Date Received</label>
+                    <input type="text" name="date_received" value="" disabled="true">
+                  </div>
+                  <div class="form-group col-sm-2">
+                    <label for="assigned_to">Assigned To</label>
+                    <input type="text" name="assigned_to" value="" disabled="true">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-5">
+                    <label for="short_disc">Short Description of Issue</label>
+                    <input type="text" name="short_disc" value="" disabled="true">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="computer-make">Computer Make/Model</label>
+                    <input type="text" name="computer_make" value="" disabled="true">
+                  </div>
+                  <div class="form-group col-sm-2">
+                    <label for="est_completion">Estimated Completion</label>
+                    <input type="text" name="est_completion" value="" disabled="true">
+                  </div>
+                  <div class="form-group col-sm-2">
+                    <label for="form_factor">Form Factor</label>
+                    <select name="form_factor" disabled="true">
+                      <option value="Tower">Tower</option>
+                      <option value="Laptop">Laptop</option>
+                      <option value="Single">Single</option>
+                      <option value="Mini">Mini</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-sm-10">
+                    <label for="item_desc">Description of Issue</label>
+                    <textarea name="item_desc" rows="8" disabled="true"></textarea>
+                  </div>
+                  <div class="form-group col-sm-2">
+                    <div class="row">
+                      <div class="form-group col">
+                        <label for="location">Location</label>
+                        <select name="location" disabled="true">
+                          <option value="Bay 1">Bay 1</option>
+                          <option value="Bay 2">Bay 2</option>
+                          <option value="Bay 3">Bay 3</option>
+                          <option value="Bay 4">Bay 4</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col">
+                        <label for="reason_for_hold">Reason For Hold</label>
+                        <input type="text" name="reason_for_hold" value="" disabled="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-10">
+                    <div class="row">
+                      <div class="form-group col">
+                        <label for="initial_diag">Initial Diagnosis</label>
+                        <textarea name="initial_diag" disabled="true"></textarea>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col">
+                        <label for="repair_notes">Repair Notes</label>
+                        <textarea name="repair_notes" disabled="true"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-2">
+                    <label for="parts_needed">Parts Needed</label>
+                    <select name="parts_needed" size="11" multiple disabled="true">
+                        <option value="mobo">Motherboard</option>
+                        <option value="cpu">CPU</option>
+                        <option value="cooler">CPU Cooler</option>
+                        <option value="ram">Memory</option>
+                        <option value="gpu">Graphics Card</option>
+                        <option value="psu">Power Supply</option>
+                        <option value="sata_pow">Sata Power</option>
+                        <option value="molex_cab">Molex Power</option>
+                        <option value="sata_dat">Sata Data</option>
+                        <option value="misc-cab">Misc Cables</option>
+                        <option value="other">Other-See Notes</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-sm imgright">
-      <img src=./Resources/ticket/edit.png>
-    </div>
-
-    </div>
+      <div class="col-sm imgleft">
+        <img src=./Resources/ticket/cancel.png>
+      </div>
+      <div class="col-sm imgright">
+        <img src=./Resources/ticket/edit.png>
+      </div>
       <!-- END CONTENT SECTION -->
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="foot">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 col-sm-3">
-                <a href="privacy.html" class="nav-link text-muted hvr-grow">Privacy</a>
-              </div>
-              <div class="col-md-4 col-sm-3">
-                <a href="contact.html" class="nav-link text-muted hvr-grow">Contact Us</a>
-              </div>
-              <div class="col-md-4 col-sm-3">
-                <a href="index.html" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
-              </div>
+      <!-- END CONTAINER -->
+      <!-- BEGIN FOOTER -->
+      <div class="foot">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-3">
+              <a href="privacy.html" class="nav-link text-muted hvr-grow">Privacy</a>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="contact.html" class="nav-link text-muted hvr-grow">Contact Us</a>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="index.html" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
             </div>
           </div>
         </div>
-        <!-- END FOOTER -->
+      </div>
+      <!-- END FOOTER -->
       </section>
       <!-- END CONTENT SECTION -->
     </div>

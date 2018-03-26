@@ -4,10 +4,119 @@ body {
 
 .back {
   background-image: none;
-  background-color: #ddd;
+  background-color: #fff;
 }
 
 .table {
   background-color: #fff;
   color: #000;
 }
+
+.dashboard {
+  background-color: #979797;
+  padding-top: 80px;
+  padding-bottom: 3em;
+}
+.panel {
+  box-shadow: #000 0px 2px 4px;
+  background-color: white;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+.panel-heading {
+  background-color: #ddd;
+  color: #000;
+  padding-left: 1em;
+  border-radius: 5px 5px 0 0;
+  box-shadow: #000 0px 2px 4px;
+  font-weight: 700;
+  height: 2em;
+}
+.panel-title {
+  vertical-align: middle;
+}
+.panel-body {
+  padding: 0.5em;
+}
+
+.ticket_space{
+  padding-top: 80px;
+  padding-bottom: 3em;
+  background-color: #979797;
+}
+
+.panel-body form {
+  border-radius: 5px;
+  background-color: #ddd;
+  color: #000;
+}
+.form-group {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.form-group input, select, textarea {
+  width: 100%;
+}
+textarea #parts {
+  height: 100px;
+}
+.form-group img {
+  width: 20px;
+}
+/* 
+.imgleft{
+  margin-top: 110px;
+  text-align: right;
+}
+
+.imgright{
+  margin-top: 110px;
+  text-align: left;
+}
+
+.imgright2{
+  margin-top: 165px;
+  text-align: left;
+} */
+tbody > tr > td:nth-child(1) > img {
+  width: 25px;
+  height: auto;
+}
+.card-style{
+  font-size: 20px!important;
+  height: 3.5em!important;
+  margin: 0px!important;
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+  margin-top: 0px!important;
+  margin-bottom: 0px!important;
+  /*text-align: left!important;*/
+  color: #FFF!important;
+  border: #000 1px solid;
+}
+a .card-style {
+  color: #fff;
+}
+a:hover {
+  text-decoration-color: #fff;
+}
+
+.card-open{
+  background-color: #B5CA68!important;
+}
+
+.card-onHold{
+  background-color: #375E97!important;
+}
+
+.card-inProgress{
+  background-color: #FFBB00!important;
+}
+
+.card-closed{
+  background-color: #FB6542!important;
+}
+
+/* table, tr, th, td{
+  background-color: ##F1F1F1!important;
+}  */
