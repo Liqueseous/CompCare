@@ -69,9 +69,9 @@
               <div class="container">
                 <div class="row">
                   <div class="form-group col-sm-2">
-                    <img src="/resources/dashboard/circle-open.svg" alt="">
+                    <img id="status_img" src="/resources/dashboard/circle-open.svg" alt="">
                     <label for="status_field">Status</label>
-                    <select name="status_field" disabled="true">
+                    <select name="status_field" id="status_field" onchange="checkIcon()" disabled>
                       <option value="Open">Open</option>
                       <option value="In Progress">In Progress</option>
                       <option value="On Hold">On Hold</option>
@@ -80,37 +80,37 @@
                   </div>
                   <div class="form-group col-sm-3">
                     <label for="customer_name">Customer Name</label>
-                    <input type="text" name="customer_name" value="" disabled="true">
+                    <input type="text" name="customer_name" value="" disabled>
                   </div>
                   <div class="form-group col-sm-3">
                     <label for="phone_number">Phone Number</label>
-                    <input type="text" name="phone_number" value="" disabled="true">
+                    <input type="text" name="phone_number" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="date-received">Date Received</label>
-                    <input type="text" name="date_received" value="" disabled="true">
+                    <input type="text" name="date_received" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="assigned_to">Assigned To</label>
-                    <input type="text" name="assigned_to" value="" disabled="true">
+                    <input type="text" name="assigned_to" value="" disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-sm-5">
                     <label for="short_disc">Short Description of Issue</label>
-                    <input type="text" name="short_disc" value="" disabled="true">
+                    <input type="text" name="short_disc" value="" disabled>
                   </div>
                   <div class="form-group col-sm-3">
                     <label for="computer-make">Computer Make/Model</label>
-                    <input type="text" name="computer_make" value="" disabled="true">
+                    <input type="text" name="computer_make" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="est_completion">Estimated Completion</label>
-                    <input type="text" name="est_completion" value="" disabled="true">
+                    <input type="text" name="est_completion" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="form_factor">Form Factor</label>
-                    <select name="form_factor" disabled="true">
+                    <select name="form_factor" disabled>
                       <option value="Tower">Tower</option>
                       <option value="Laptop">Laptop</option>
                       <option value="Single">Single</option>
@@ -121,13 +121,13 @@
                 <div class="row">
                   <div class="form-group col-sm-10">
                     <label for="item_desc">Description of Issue</label>
-                    <textarea name="item_desc" rows="8" disabled="true"></textarea>
+                    <textarea name="item_desc" rows="8" disabled></textarea>
                   </div>
                   <div class="form-group col-sm-2">
                     <div class="row">
                       <div class="form-group col">
                         <label for="location">Location</label>
-                        <select name="location" disabled="true">
+                        <select name="location" disabled>
                           <option value="Bay 1">Bay 1</option>
                           <option value="Bay 2">Bay 2</option>
                           <option value="Bay 3">Bay 3</option>
@@ -136,9 +136,13 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="form-group col">
+                      <div class="form-group col onHold" hidden>
                         <label for="reason_for_hold">Reason For Hold</label>
-                        <input type="text" name="reason_for_hold" value="" disabled="true">
+                        <input type="text" name="reason_for_hold" value="" disabled>
+                      </div>
+                      <div class="form-group col closed" hidden>
+                        <label for="res_code">Resolution Code</label>
+                        <input type="text" name="res_code" value="" disabled>
                       </div>
                     </div>
                   </div>
@@ -148,31 +152,31 @@
                     <div class="row">
                       <div class="form-group col">
                         <label for="initial_diag">Initial Diagnosis</label>
-                        <textarea name="initial_diag" disabled="true"></textarea>
+                        <textarea name="initial_diag" disabled></textarea>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col">
                         <label for="repair_notes">Repair Notes</label>
-                        <textarea name="repair_notes" disabled="true"></textarea>
+                        <textarea name="repair_notes" disabled></textarea>
                       </div>
                     </div>
                   </div>
-                  <div class="form-group col-sm-2">
+                  <div class="form-group col-sm-2 onHold" hidden>
                     <label for="parts_needed">Parts Needed</label>
-                    <select name="parts_needed" size="11" multiple disabled="true">
-                        <option value="mobo">Motherboard</option>
-                        <option value="cpu">CPU</option>
-                        <option value="cooler">CPU Cooler</option>
-                        <option value="ram">Memory</option>
-                        <option value="gpu">Graphics Card</option>
-                        <option value="psu">Power Supply</option>
-                        <option value="sata_pow">Sata Power</option>
-                        <option value="molex_cab">Molex Power</option>
-                        <option value="sata_dat">Sata Data</option>
-                        <option value="misc-cab">Misc Cables</option>
-                        <option value="other">Other-See Notes</option>
-                      </select>
+                    <select name="parts_needed" size="11" multiple disabled>
+                      <option value="mobo">Motherboard</option>
+                      <option value="cpu">CPU</option>
+                      <option value="cooler">CPU Cooler</option>
+                      <option value="ram">Memory</option>
+                      <option value="gpu">Graphics Card</option>
+                      <option value="psu">Power Supply</option>
+                      <option value="sata_pow">Sata Power</option>
+                      <option value="molex_cab">Molex Power</option>
+                      <option value="sata_dat">Sata Data</option>
+                      <option value="misc-cab">Misc Cables</option>
+                      <option value="other">Other-See Notes</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -207,82 +211,6 @@
       <!-- END FOOTER -->
       </section>
       <!-- END CONTENT SECTION -->
-    </div>
-    <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <form id="loginForm" method="post">
-            <div class="modal-header">
-              <h5 class="modal-title" id="loginModalTitle">Login</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
-                <label for="pass">Password</label>
-                <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rememberEmail">
-                <label class="form-check-label" for="rememberEmail">Remember Me</label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary outBut" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary hvr-back-pulse" id="loginSubmit">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpnModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <form id="signUpForm" method="post">
-            <div class="modal-header">
-              <h5 class="modal-title" id="signUpModalTitle">Signup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                <label for="email2">Confirm Email address</label>
-                <input type="email" class="form-control" id="email2" name="email2" aria-describedby="emailHelp" placeholder="Re-Enter email">
-              </div>
-              <div class="form-group">
-                <label for="pass">Password</label>
-                <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="pass2">Confirm Password</label>
-                <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Re-Enter Password">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary outBut" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary hvr-back-pulse" id="signUpSubmit">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
 
     <!-- JQUERY -->
