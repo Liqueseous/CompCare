@@ -71,7 +71,7 @@
                   <div class="form-group col-sm-2">
                     <img id="status_img" src="/resources/dashboard/circle-open.svg" alt="">
                     <label for="status_field">Status</label>
-                    <select name="status_field" id="status_field" onchange="checkIcon()" disabled>
+                    <select name="status_field" id="status_field" onchange="checkForm()" disabled>
                       <option value="Open">Open</option>
                       <option value="In Progress">In Progress</option>
                       <option value="On Hold">On Hold</option>
@@ -136,11 +136,11 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="form-group col onHold" hidden>
+                      <div class="form-group col onHold">
                         <label for="reason_for_hold">Reason For Hold</label>
                         <input type="text" name="reason_for_hold" value="" disabled>
                       </div>
-                      <div class="form-group col closed" hidden>
+                      <div class="form-group col closed">
                         <label for="res_code">Resolution Code</label>
                         <input type="text" name="res_code" value="" disabled>
                       </div>
@@ -162,7 +162,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group col-sm-2 onHold" hidden>
+                  <div class="form-group col-sm-2 onHold" style="display:none">
                     <label for="parts_needed">Parts Needed</label>
                     <select name="parts_needed" size="11" multiple disabled>
                       <option value="mobo">Motherboard</option>
@@ -184,11 +184,16 @@
           </div>
         </div>
       </div>
-      <div class="col-sm imgleft">
-        <img src=./Resources/ticket/cancel.png>
+
+      <div id="imgleft">
+        <a href="dashboard.html" alt="Go Back">
+          <img src=./resources/ticket/back.svg>
+        </a>
       </div>
-      <div class="col-sm imgright">
-        <img src=./Resources/ticket/edit.png>
+
+      <div id="imgright">
+        <a href="javascript:void(0);" onclick="enableEdit()" alt="Edit">
+          <img src=./resources/ticket/edit.svg>
       </div>
       <!-- END CONTENT SECTION -->
       <!-- END CONTAINER -->
