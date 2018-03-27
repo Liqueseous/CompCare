@@ -1,0 +1,136 @@
+/* CSS FOR INFO PAGES ONLY SUCH AS ABOUT/CONTACT/PRIVACY */
+
+body {
+  background-image: none;
+}
+
+textarea {
+  min-height: 200px;
+  height: 25%;
+}
+
+.header {
+  background-image: url("../background/background-jplenio.jpeg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* TITLE GROUP */
+.group {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.2), 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADER WITHIN TITLE GROUP */
+.group h1 {
+  text-transform: uppercase;
+}
+
+/* SUB-TITLE GROUP */
+.group2 {
+  padding-top: 2rem;
+  margin-bottom: 4rem;
+  left: 0;
+  font-size: 3rem;
+  max-height: 3rem;
+}
+
+.group2 a:focus,
+.group2 a:hover {
+  color: #881ED9;
+  transition: all 0.25s ease-in-out;
+}
+
+/* MAIN CONTENT */
+#content {
+  margin-top: 0;
+  padding-top: 70px;
+  padding-bottom: 3em;
+  color: #000;
+}
+
+.group2 a {
+  color: #fff;
+}
+
+/* CONTACT US PAGE, MAIN CELL AND SIDEBAR */
+#content.main,
+#sidebar {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+#sidebar p {
+  line-height: 0.3em
+}
+
+#sidebar {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+#sidebar a {
+  color: #000;
+}
+
+#contactForm {
+  width: 100%;
+}
+
+/* ABOUT US BACKGROUND */
+.dark-bg {
+  background-color: #001122;
+  height: 100%;
+  width: 100%;
+}
+
+.light-bg {
+  background-color: #fff;
+}
+
+/* ABOUT US CARDS */
+.card {
+  background-color: #001122;
+  border: 0px;
+  margin: 0 auto;
+  margin-top: 50px;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.card-title,
+.card-text,
+.card-quote,
+.card-intro {
+  color: #ffffff;
+}
+
+.card-intro {
+  font-style: italic;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+.card-title {
+  text-align: center;
+  text-shadow: 1px 1px #000000;
+}
+
+.card-text {
+  text-align: justify;
+  height: 15em;
+}
+
+.card-quote {
+  font-size: 14px;
+  font-style: italic;
+}
