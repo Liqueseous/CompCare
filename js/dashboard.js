@@ -43,7 +43,7 @@ function showClosed() {
 //                     str     str            str        str           str              str
 function addActiveOrder(circle, customer_name, repair_id, date_entered, completion_time, tech) {
   var table = document.getElementById("activeOrders");
-  var link = "/ticket.html?" + repair_id;
+  var link = "./ticket.html?" + repair_id;
   var row = table.insertRow(2);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
