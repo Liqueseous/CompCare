@@ -21,6 +21,7 @@ textarea {
 }
 
 /* TITLE GROUP */
+
 .group {
   position: absolute;
   width: 100%;
@@ -30,11 +31,13 @@ textarea {
 }
 
 /* HEADER WITHIN TITLE GROUP */
+
 .group h1 {
   text-transform: uppercase;
 }
 
 /* SUB-TITLE GROUP */
+
 .group2 {
   padding-top: 2rem;
   margin-bottom: 4rem;
@@ -50,6 +53,7 @@ textarea {
 }
 
 /* MAIN CONTENT */
+
 #content {
   margin-top: 0;
   padding-top: 70px;
@@ -62,6 +66,7 @@ textarea {
 }
 
 /* CONTACT US PAGE, MAIN CELL AND SIDEBAR */
+
 #content.main,
 #sidebar {
   text-align: left;
@@ -87,6 +92,7 @@ textarea {
 }
 
 /* ABOUT US BACKGROUND */
+
 .dark-bg {
   background-color: #001122;
   height: 100%;
@@ -98,6 +104,7 @@ textarea {
 }
 
 /* ABOUT US CARDS */
+
 .card {
   background-color: #001122;
   border: 0px;

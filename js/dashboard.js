@@ -1,5 +1,5 @@
 // JUST TO TEST TO SHOW THE DASHBOARD
-window.onload = function WindowLoad(event) {
+$(window).on('load', function () {
   addActiveOrder("open", "Michael Blue", "015826", "11/11/11", "20 Hours", "Ziltoild");
   addActiveOrder("inProgress", "Donald J. Tump", "000666", "66/66/66", "XXX Hours", "Democracy");
   addActiveOrder("onHold", "Actual President", "012345", "01/23/45", "soon", "doge");
@@ -8,7 +8,7 @@ window.onload = function WindowLoad(event) {
   addClosedOrder("Michael Blue", "015826", "11/11/11", "12/12/12", "Completed Successfully");
   addClosedOrder("Donald J. Tump", "000666", "66/66/66", "12/12/12", "Completed Successfully");
   addClosedOrder("Actual President", "012345", "01/23/45", "12/12/12", "Completed Successfully");
-}
+});
 
 jQuery(document).ready(function ($) {
   $(".clickable-row").click(function () {

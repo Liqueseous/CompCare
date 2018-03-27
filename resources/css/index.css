@@ -21,6 +21,10 @@ body {
   background-position: center;
 }
 
+.white {
+  background-color: #fff;
+}
+
 /* IS A COMMENT EVEN NEEDED? */
 
 button {

@@ -1,7 +1,7 @@
 // LOTTIE FILES
 var preloader = bodymovin.loadAnimation({
   container: document.getElementById('preloader'), // Required
-  path: '../resources/lottie/ripple_loading_animation.json', // Required
+  path: './resources/lottie/ripple_loading_animation.json', // Required
   renderer: 'svg', // Required
   loop: true, // Optional
   autoplay: true, // Optional
@@ -41,6 +41,9 @@ var outEase = anime({
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
 $(document).ready(function () {
+
+  $('body').removeClass('white');
+  $('body').addClass('back');
 
   // LOGIN FORM VALIDATION
   $('#loginForm').validate({ // initialize the plugin
@@ -114,35 +117,45 @@ $(document).ready(function () {
   // SIGNUP FORM SUBMIT
   $("#signUpForm").on('submit', function (e) {
     e.preventDefault();
-    let data = {
+    const data = {
       name: $("#signUpForm #name").val(),
       email: $("#signUpForm #email").val(),
       password: $("#signUpForm #pass").val()
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/signup', data)
-      .done((data) => {
-        alert(data);
+      .done((response) => {
+        const resData = JSON.parse(JSON.stringify(response));
+        const signupMessage = resData.message;
+        const token = resData.token;
+        console.log(signupMessage);
+        localStorage.setItem('jwtToken', token);
       })
-      .error((err) => {
-        alert(err);
-      })
-    });
+      .fail((error) => {
+        const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+        console.log(signupErrorMsg);
+      });
+  });
 
   // LOGIN FORM SUBMIT
   $("#loginForm").on('submit', function (e) {
     e.preventDefault();
-    let data = {
+    const data = {
       email: $("#loginForm #email").val(),
       password: $("#loginForm #pass").val()
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/login', data)
-      .done((data) => {
-        alert(JSON.stringify(data));
+      .done((response) => {
+        const resData = JSON.parse(JSON.stringify(response));
+        const loginMessage = resData.message;
+        const token = resData.token;
+        console.log(loginMessage);
+        localStorage.setItem('jwtToken', token);
       })
-      .error((err) => {
-        alert(JSON.stringify(err));
-      })
-    });
+      .fail((error) => {
+        const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+        console.log(loginErrMsg);
+      });
+  });
 
   // ADD A SCROLL TO ELEMENT FUNCTION ON CLICK
   jQuery.fn.extend({
@@ -189,10 +202,10 @@ $(document).ready(function () {
 
 });
 
-//ALL CONTENT CON PAGE HAS LOADED
+//ALL CONTENT ON PAGE HAS LOADED
 $(window).on('load', function () {
   $('#loader').hide();
   $('#pagecontent').show();
-  $('body').addClass('back');
+  $('body').addClass('white');
   preloader.stop();
 });
