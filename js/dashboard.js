@@ -51,7 +51,9 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
-
+  row.setAttribute("class", "clickable-row");
+  row.setAttribute("data-href", link);
+  
   if (circle == "open")
     cell1.innerHTML = "<img src=./resources/dashboard/circle-open.svg>";
   else if (circle == "onHold")
@@ -64,8 +66,6 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
   cell4.innerHTML = date_entered;
   cell5.innerHTML = completion_time;
   cell6.innerHTML = tech;
-  row.setAttribute("class", "clickable-row");
-  row.setAttribute("data-href", link);
 }
 
 //                      str            str        str           str          str

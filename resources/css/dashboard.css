@@ -61,6 +61,10 @@ textarea {
   width: 100%;
 }
 
+.form-group img {
+  width: 20px;
+}
+
 label {
   color: #777;
 }
@@ -69,8 +73,8 @@ textarea #parts {
   height: 100px;
 }
 
-.form-group img {
-  width: 20px;
+.res_code {
+  height: 20px;
 }
 
 #imgleft {
