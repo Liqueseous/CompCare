@@ -12,10 +12,10 @@ body {
   color: #000;
 }
 
-.dashboard {
+.dashboard, .ticket_space{
   background-color: #979797;
   padding-top: 80px;
-  padding-bottom: 3em;
+  padding-bottom: 6em;
 }
 
 .panel {
@@ -41,12 +41,6 @@ body {
 
 .panel-body {
   padding: 0.5em;
-}
-
-.ticket_space {
-  padding-top: 80px;
-  padding-bottom: 3em;
-  background-color: #979797;
 }
 
 .panel-body form {
@@ -83,7 +77,7 @@ textarea #parts {
   position: fixed;
   bottom: 80px;
   left: 5px;
-  width: 40px;
+  width: 50px;
   height: auto;
 }
 
@@ -91,7 +85,7 @@ textarea #parts {
   position: fixed;
   bottom: 80px;
   right: 5px;
-  width: 40px;
+  width: 50px;
   height: auto;
 }
 
