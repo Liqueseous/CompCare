@@ -1,7 +1,7 @@
 // LOTTIE FILES
 var preloader = bodymovin.loadAnimation({
   container: document.getElementById('preloader'), // Required
-  path: '../resources/lottie/ripple_loading_animation.json', // Required
+  path: './resources/lottie/ripple_loading_animation.json', // Required
   renderer: 'svg', // Required
   loop: true, // Optional
   autoplay: true, // Optional
