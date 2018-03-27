@@ -133,7 +133,7 @@ $(document).ready(function () {
       .fail((error) => {
         const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(signupErrorMsg);
-        $('#signupError').innerHTML = signupErrorMsg;
+        document.getElementById('signupError').innerHTML = signupErrorMsg;
       });
   });
 
@@ -155,7 +155,7 @@ $(document).ready(function () {
       .fail((error) => {
         const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(loginErrMsg);
-        $('#loginError').innerHTML = loginErrMsg;
+        document.getElementById('loginError').innerHTML = loginErrMsg;
       });
   });
 
