@@ -137,10 +137,10 @@ $(document).ready(function () {
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/login', data)
       .done((data) => {
-        alert(data);
+        alert(JSON.stringify(data));
       })
       .error((err) => {
-        alert(err);
+        alert(JSON.stringify(err));
       })
     });
 
