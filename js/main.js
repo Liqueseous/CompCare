@@ -114,34 +114,44 @@ $(document).ready(function () {
   // SIGNUP FORM SUBMIT
   $("#signUpForm").on('submit', function (e) {
     e.preventDefault();
-    let data = {
-      name: $("#signUpForm #name").val(),
-      email: $("#signUpForm #email").val(),
+    const data = { 
+      name: $("#signUpForm #name").val(), 
+      email: $("#signUpForm #email").val(), 
       password: $("#signUpForm #pass").val()
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/signup', data)
-      .done((data) => {
-        alert(data);
+      .done((response) => { 
+        const resData = JSON.parse(JSON.stringify(response)); 
+        const signupMessage = resData.message;         
+        const token = resData.token; 
+        console.log(signupMessage); 
+        localStorage.setItem('jwtToken', token); 
       })
-      .error((err) => {
-        alert(err);
-      })
+      .fail((error) => { 
+        const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message; 
+        console.log(signupErrorMsg); 
+      });
     });
 
   // LOGIN FORM SUBMIT
   $("#loginForm").on('submit', function (e) {
     e.preventDefault();
-    let data = {
-      email: $("#loginForm #email").val(),
-      password: $("#loginForm #pass").val()
+    const data = { 
+      email: $("#loginForm #email").val(), 
+      password: $("#loginForm #pass").val() 
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/login', data)
-      .done((data) => {
-        alert(JSON.stringify(data));
-      })
-      .error((err) => {
-        alert(JSON.stringify(err));
-      })
+      .done((response) => { 
+        const resData = JSON.parse(JSON.stringify(response)); 
+        const loginMessage = resData.message;         
+        const token = resData.token; 
+        console.log(loginMessage); 
+        localStorage.setItem('jwtToken', token); 
+      }) 
+      .fail((error) => { 
+        const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message; 
+        console.log(loginErrMsg); 
+      }); 
     });
 
   // ADD A SCROLL TO ELEMENT FUNCTION ON CLICK
