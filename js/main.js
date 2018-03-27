@@ -114,21 +114,35 @@ $(document).ready(function () {
   // SIGNUP FORM SUBMIT
   $("#signUpForm").on('submit', function (e) {
     e.preventDefault();
-    $.post('https://afternoon-waters-42339.herokuapp.com/signup', {
-      // May need to rework this.... along with login
+    let data = {
+      name: $("#signUpForm #name").val(),
       email: $("#signUpForm #email").val(),
       password: $("#signUpForm #pass").val()
+    }
+    $.post('https://afternoon-waters-42339.herokuapp.com/signup', data)
+      .done((data) => {
+        alert(data);
+      })
+      .error((err) => {
+        alert(err);
+      })
     });
-  });
 
   // LOGIN FORM SUBMIT
   $("#loginForm").on('submit', function (e) {
     e.preventDefault();
-    $.post('https://afternoon-waters-42339.herokuapp.com/login', {
-      email: $("#loginForm email").val(),
-      password: $("#loginForm pass").val()
+    let data = {
+      email: $("#loginForm #email").val(),
+      password: $("#loginForm #pass").val()
+    }
+    $.post('https://afternoon-waters-42339.herokuapp.com/login', data)
+      .done((data) => {
+        alert(JSON.stringify(data));
+      })
+      .error((err) => {
+        alert(JSON.stringify(err));
+      })
     });
-  });
 
   // ADD A SCROLL TO ELEMENT FUNCTION ON CLICK
   jQuery.fn.extend({

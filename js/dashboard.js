@@ -71,7 +71,7 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
 //                      str            str        str           str          str
 function addClosedOrder(customer_name, repair_id, date_entered, date_closed, resolution_code) {
   var table = document.getElementById("closedOrders");
-  var link = "/ticket.html?" + repair_id;
+  var link = "./ticket.html?" + repair_id;
   var row = table.insertRow(2);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
@@ -80,7 +80,7 @@ function addClosedOrder(customer_name, repair_id, date_entered, date_closed, res
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
 
-  cell1.innerHTML = "<img src=./Resources/dashboard/circle-closed.svg>";
+  cell1.innerHTML = "<img src=./resources/dashboard/circle-closed.svg>";
   cell2.innerHTML = customer_name;
   cell3.innerHTML = repair_id;
   cell4.innerHTML = date_entered;
