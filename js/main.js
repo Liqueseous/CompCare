@@ -133,7 +133,7 @@ $(document).ready(function () {
       .fail((error) => {
         const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(signupErrorMsg);
-        document.getElementById('signupError').innerHTML = signupErrorMsg;
+        document.getElementById('signUpError').innerHTML = signupErrorMsg;
       });
   });
 
