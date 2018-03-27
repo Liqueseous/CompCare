@@ -133,6 +133,7 @@ $(document).ready(function () {
       .fail((error) => {
         const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(signupErrorMsg);
+        document.getElementById('signUpError').innerHTML = signupErrorMsg;
       });
   });
 
@@ -154,6 +155,7 @@ $(document).ready(function () {
       .fail((error) => {
         const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(loginErrMsg);
+        document.getElementById('loginError').innerHTML = loginErrMsg;
       });
   });
 

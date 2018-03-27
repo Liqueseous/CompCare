@@ -165,3 +165,10 @@ textarea:focus {
 label.error {
   color: #FF3B3B;
 }
+
+#loginError, #signUpError {
+  color: #FF3B3B;
+  font-weight: 700;
+  text-transform: capitalize;
+
+}
