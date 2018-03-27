@@ -58,8 +58,8 @@ jQuery(document).ready(function ($) {
 });
 
 function enableEdit() {
-  document.querySelector("#imgleft").innerHTML = "<a href=\"javascript:void(0);\" onclick=\"disableEdit()\" alt=\"Cancel Changes\"><img src=./resources/ticket/cancel.svg></a>"
-  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:void(0);\" onclick=\"save()\" alt=\"Save Changes\"><img src=./resources/ticket/save.svg></a>"
+  document.querySelector("#imgleft").innerHTML = "<a href=\"javascript:disableEdit();\" alt=\"Cancel Changes\"><img src=./resources/ticket/cancel.svg></a>"
+  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:save();\" alt=\"Save Changes\"><img src=./resources/ticket/save.svg></a>"
 
   var inputs = document.querySelectorAll("input, select, textarea")
   var labels = document.querySelectorAll(".form-group label")
@@ -78,7 +78,7 @@ function save() {
 
 function disableEdit() {
   document.querySelector("#imgleft").innerHTML = "<a href=\"dashboard.html\" alt=\"Go Back\"><img src=./resources/ticket/back.svg></a>"
-  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:void(0);\" onclick=\"enableEdit()\" alt=\"Edit\"><img src=./resources/ticket/edit.svg>"
+  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:enableEdit();\" alt=\"Edit\"><img src=./resources/ticket/edit.svg>"
 
   var inputs = document.querySelectorAll("input, select, textarea");
   var labels = document.querySelectorAll(".form-group label");
