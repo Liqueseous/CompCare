@@ -201,7 +201,7 @@ $(document).ready(function () {
 
   });
 
-  $('[data-toggle="tooltip"]').tooltip();
+  $('.tipster').tooltipster();
 
 });
 

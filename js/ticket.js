@@ -58,8 +58,17 @@ jQuery(document).ready(function ($) {
 });
 
 function enableEdit() {
-  document.querySelector("#imgleft").innerHTML = "<a href=\"javascript:disableEdit();\" alt=\"Cancel Changes\" data-toggle=\"tooltip\" title=\"Cancel Changes\"><img src=./resources/ticket/cancel.svg></a>"
-  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:save();\" alt=\"Save Changes\" data-toggle=\"tooltip\" title=\"Save Changes\"><img src=./resources/ticket/save.svg></a>"
+  $('#imgleft > a').attr('href', 'javascript:disableEdit();');
+  $('#imgleft > a').attr('alt', 'Cancel Changes');
+  $('#imgleft > a').attr('class', 'tipster');
+  $('#imgleft > a').attr('title', 'Cancel Changes');
+  $('#imgleft > a > img').attr('src', './resources/ticket/cancel.svg');
+
+  $('#imgright > a').attr('href', 'javascript:disableEdit();');
+  $('#imgright > a').attr('alt', 'Save Changes');
+  $('#imgright > a').attr('class', 'tipster');
+  $('#imgright > a').attr('title', 'Save Changes');
+  $('#imgright > a > img').attr('src', './resources/ticket/save.svg');
 
   var inputs = document.querySelectorAll("input, select, textarea")
   var labels = document.querySelectorAll(".form-group label")
@@ -77,8 +86,24 @@ function save() {
 }
 
 function disableEdit() {
-  document.querySelector("#imgleft").innerHTML = "<a href=\"dashboard.html\" alt=\"Go Back\" data-toggle=\"tooltip\" title=\"Back to Dashboard\"><img src=./resources/ticket/back.svg></a>"
-  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:enableEdit();\" alt=\"Edit\" data-toggle=\"tooltip\" title=\"Edit Ticket\"><img src=./resources/ticket/edit.svg>"
+
+  $('#imgleft > a').removeAttr('title');
+  $('#imgleft > a').removeAttr('class');
+  $('#imgleft > a').removeAttr('alt');
+  $('#imgleft > a').attr('href', 'dashboard.html');
+  $('#imgleft > a').attr('alt', 'Go Back');
+  $('#imgleft > a').attr('class', 'tipster');
+  $('#imgleft > a').attr('title', 'Back to Dashboard');
+  $('#imgleft > a > img').attr('src', './resources/ticket/back.svg');
+
+  $('#imgright > a').removeAttr('title');
+  $('#imgright > a').removeAttr('class');
+  $('#imgright > a').removeAttr('alt');
+  $('#imgright > a').attr('href', 'javascript:enableEdit();');
+  $('#imgright > a').attr('alt', 'Edit Ticket');
+  $('#imgright > a').attr('class', 'tipster');
+  $('#imgright > a').attr('title', 'Edit Ticket');
+  $('#imgright > a > img').attr('src', './resources/ticket/edit.svg');
 
   var inputs = document.querySelectorAll("input, select, textarea");
   var labels = document.querySelectorAll(".form-group label");

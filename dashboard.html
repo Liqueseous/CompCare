@@ -18,6 +18,7 @@
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700" rel="stylesheet">
   <link rel="stylesheet" href="./resources/css/hover-min.css">
+  <link rel="stylesheet" href="./resources/css/tooltipster.bundle.css">
   <link rel="stylesheet" href="./resources/css/index.css">
   <link rel="stylesheet" href="./resources/css/pages.css">
   <link rel="stylesheet" href="./resources/css/dashboard.css">
@@ -68,7 +69,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-md-3">
-                <a href="javascript:showOpen();" data-toggle="tooltip" title="Filter by Open Orders" data-placement="top">
+                <a href="javascript:showOpen();" class="tipster" title="Filter by Open Orders">
                   <div class="card-style card-open">
                     <div class="card-title" id="openTXT">
                       Open Orders
@@ -77,7 +78,7 @@
                 </a>
               </div>
               <div class="col-md-3">
-                <a href="javascript:showOnHold();" data-toggle="tooltip" title="Filter by On Hold Orders" data-placement="top">
+                <a href="javascript:showOnHold();" class="tipster" title="Filter by On Hold Orders">
                   <div class="card-style card-onHold">
                     <div class="card-title" id="onHoldTXT">
                       On Hold Orders
@@ -86,7 +87,7 @@
                 </a>
               </div>
               <div class="col-md-3">
-                <a href="javascript:showInProgress();" data-toggle="tooltip" title="Filter by In Progress Orders" data-placement="top">
+                <a href="javascript:showInProgress();" class="tipster" title="Filter by In Progress Orders">
                   <div class="card-style card-inProgress">
                     <div class="card-title" id="inProgressTXT">
                       In Progress Orders
@@ -95,7 +96,7 @@
                 </a>
               </div>
               <div class="col-md-3">
-                <a href="javascript:showClosed();" data-toggle="tooltip" title="Filter by Closed Orders" data-placement="top">
+                <a href="javascript:showClosed();" class="tipster" title="Filter by Closed Orders">
                   <div class="card-style card-closed">
                     <div class="card-title" id="closedTXT">
                       Closed Orders
@@ -113,22 +114,22 @@
           </div>
           <div class="panel-body">
             <div class="row container">
-              <div class="col-sm-1" data-toggle="tooltip" title="Ticket Status" data-placement="top">
+              <div class="col-sm-1" class="tipster" title="Ticket Status">
                 Status
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Customer Name" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Customer Name">
                 Cust. Name
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Unique Repair ID" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Unique Repair ID">
                 Repair ID
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Date Ticket Was Entered Into system" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Date Ticket Was Entered Into system">
                 Date Entered
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Est. Time to Completion" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Est. Time to Completion">
                 Est. (TTC)
               </div>
-              <div class="col-sm-3" data-toggle="tooltip" title="Technician Ticket is Assigned To" data-placement="top">
+              <div class="col-sm-3" class="tipster" title="Technician Ticket is Assigned To" >
                 Technician
               </div>
             </div>
@@ -144,22 +145,22 @@
           </div>
           <div class="panel-body">
             <div class="row container">
-              <div class="col-sm-1" data-toggle="tooltip" title="Ticket Status" data-placement="top">
+              <div class="col-sm-1" class="tipster" title="Ticket Status" >
                 Status
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Customer Name" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Customer Name" >
                 Cust. Name
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Unique Repair ID" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Unique Repair ID" >
                 Repair ID
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Date Ticket Was Entered Into System" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Date Ticket Was Entered Into System" >
                 Date Entered
               </div>
-              <div class="col-sm-2" data-toggle="tooltip" title="Date Ticket Was Closed" data-placement="top">
+              <div class="col-sm-2" class="tipster" title="Date Ticket Was Closed" >
                 Date Closed
               </div>
-              <div class="col-sm-3" data-toggle="tooltip" title="Ticket Resolution Code" data-placement="top">
+              <div class="col-sm-3" class="tipster" title="Ticket Resolution Code" >
                 Resolution Code
               </div>
             </div>
@@ -170,7 +171,7 @@
         </div>
       </div>
       <div id="imgright">
-        <a href="javascript:void(0);" alt="New Ticket" data-toggle="tooltip" title="Create New Ticket" data-placement="auto">
+        <a href="javascript:void(0);" alt="New Ticket" class="tipster" title="Create New Ticket">
           <img src=./resources/dashboard/create.svg alt="Add New Ticket">
         </a>
       </div>
@@ -211,6 +212,8 @@
       <script src="./js/bodymovin.js" type="text/javascript"></script>
       <!-- ANIME -->
       <script src="./js/anime.min.js" type="text/javascript"></script>
+      <!-- TOOLTIPSTER -->
+      <script src="./js/tooltipster.bundle.js" type="text/javascript"></script>
       <!-- CUSTOM JAVASCRIPT -->
       <script src="./js/main.js" type="text/javascript"></script>
       <!-- DASHBOARD JAVASCRIPT -->
