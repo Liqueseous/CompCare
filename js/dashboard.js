@@ -42,52 +42,53 @@ function showClosed() {
 
 //                     str     str            str        str           str              str
 function addActiveOrder(circle, customer_name, repair_id, date_entered, completion_time, tech) {
-  var table = document.getElementById("activeOrders");
-  var link = "./ticket.html?" + repair_id;
-  var row = table.insertRow(2);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  var cell6 = row.insertCell(5);
-  row.setAttribute("class", "clickable-row");
-  row.setAttribute("data-href", link);
-  
-  if (circle == "open")
-    cell1.innerHTML = "<img src=./resources/dashboard/circle-open.svg>";
-  else if (circle == "onHold")
-    cell1.innerHTML = "<img src=./resources/dashboard/circle-onHold.svg>";
-  else if (circle == "inProgress")
-    cell1.innerHTML = "<img src=./resources/dashboard/circle-inProgress.svg>";
+  var table = document.getElementById("activeOrders")
+  var link = "./ticket.html?" + repair_id; // setup anchor link
+  var anchor = document.createElement("a"); // create anchor
+  anchor.setAttribute('href', link); // set anchor href
+  var row = document.createElement("div"); // create row
+  row.setAttribute('class', 'row'); // make it a row class
 
-  cell2.innerHTML = customer_name;
-  cell3.innerHTML = repair_id;
-  cell4.innerHTML = date_entered;
-  cell5.innerHTML = completion_time;
-  cell6.innerHTML = tech;
+  //Set status image depending on status
+  //Put all elements into a row
+  if (circle == "open")
+    row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-open.svg></div>");
+  else if (circle == "onHold")
+    row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-onHold.svg></div>");
+  else if (circle == "inProgress")
+    row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-inProgress.svg></div>");
+
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + customer_name + "</div>"); //Customer Name
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + repair_id + "</div>"); //Repair ID
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + date_entered + "</div>"); //Date Entered
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + completion_time + "</div>"); //Completion Time
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-3\">" + tech + "</div>"); //technician
+  //Put the row into our anchor element
+  anchor.insertAdjacentElement('beforeend', row);
+  //Put our row and anchor into the table to display to user
+  table.insertAdjacentElement('beforeend', anchor);
 }
 
 //                      str            str        str           str          str
 function addClosedOrder(customer_name, repair_id, date_entered, date_closed, resolution_code) {
-  var table = document.getElementById("closedOrders");
-  var link = "./ticket.html?" + repair_id;
-  var row = table.insertRow(2);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  var cell6 = row.insertCell(5);
+  var table = document.getElementById("closedOrders")
+  var link = "./ticket.html?" + repair_id; // setup anchor link
+  var anchor = document.createElement("a"); // create anchor
+  anchor.setAttribute('href', link); // set anchor href
+  var row = document.createElement("div"); // create row
+  row.setAttribute('class', 'row'); // make it a row class
 
-  cell1.innerHTML = "<img src=./resources/dashboard/circle-closed.svg>";
-  cell2.innerHTML = customer_name;
-  cell3.innerHTML = repair_id;
-  cell4.innerHTML = date_entered;
-  cell5.innerHTML = date_closed
-  cell6.innerHTML = resolution_code;
-  row.setAttribute("class", "clickable-row");
-  row.setAttribute("data-href", link);
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-closed.svg></div>"); //Insert Closed status icon
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + customer_name + "</div>"); //Customer Name
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + repair_id + "</div>"); //Repair ID
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + date_entered + "</div>"); //Date Entered
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + date_closed + "</div>"); //Date Closed
+  row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-3\">" + resolution_code + "</div>"); //Resolution Code
+  //Put the row into our anchor element
+  anchor.insertAdjacentElement('beforeend', row);
+  //Put our row and anchor into the table to display to user
+  table.insertAdjacentElement('beforeend', anchor);
+
 }
 
 function resetActiveOrders() {

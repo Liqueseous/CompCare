@@ -7,15 +7,12 @@ body {
   background-color: #fff;
 }
 
-.table {
-  background-color: #fff;
-  color: #000;
-}
-
-.dashboard, .ticket_space{
+.dashboard,
+.ticket_space {
   background-color: #979797;
   padding-top: 80px;
-  padding-bottom: 6em;
+  margin-bottom: 6em;
+  height: 100%;
 }
 
 .panel {
@@ -41,6 +38,7 @@ body {
 
 .panel-body {
   padding: 0.5em;
+  color: #000;
 }
 
 .panel-body form {
@@ -77,6 +75,10 @@ textarea #parts {
   height: 20px;
 }
 
+#pagecontent {
+  height: 100%;
+}
+
 #imgleft {
   position: fixed;
   bottom: 80px;
@@ -93,9 +95,42 @@ textarea #parts {
   height: auto;
 }
 
-tbody>tr>td:nth-child(1)>img {
+#activeOrders>a>.row,
+#closedOrders>a>.row {
+  border-radius: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: #000;
+  box-shadow: #000 0px 2px 4px;
+}
+
+#activeOrders>a>.row:hover,
+#closedOrders>a>.row:hover {
+  background-color: #0C1434;
+  color: #fff;
+}
+
+#activeOrders>a:nth-child(odd)>.row,
+#closedOrders>a:nth-child(odd)>.row {
+  background-color: #eee;
+}
+
+#activeOrders>a:nth-child(odd)>.row:hover,
+#closedOrders>a:nth-child(odd)>.row:hover {
+  background-color: #0C1434;
+  color: #fff;
+}
+
+#activeOrders>a>div>div.col-sm-1>img,
+#closedOrders>a>div>div.col-sm-1>img {
   width: 25px;
   height: auto;
+}
+
+#activeOrders>a,
+#closedOrders>a {
+  text-decoration: none;
+  color: #000;
 }
 
 .card-style {
