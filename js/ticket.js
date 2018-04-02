@@ -77,8 +77,8 @@ function save() {
 }
 
 function disableEdit() {
-  document.querySelector("#imgleft").innerHTML = "<a href=\"dashboard.html\" alt=\"Go Back\"><img src=./resources/ticket/back.svg></a>"
-  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:enableEdit();\" alt=\"Edit\"><img src=./resources/ticket/edit.svg>"
+  document.querySelector("#imgleft").innerHTML = "<a href=\"dashboard.html\" alt=\"Go Back\" data-toggle=\"tooltip\" title=\"Back to Dashboard\"><img src=./resources/ticket/back.svg></a>"
+  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:enableEdit();\" alt=\"Edit\" data-toggle=\"tooltip\" title=\"Edit Ticket\"><img src=./resources/ticket/edit.svg>"
 
   var inputs = document.querySelectorAll("input, select, textarea");
   var labels = document.querySelectorAll(".form-group label");

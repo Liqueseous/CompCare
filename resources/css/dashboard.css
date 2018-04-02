@@ -85,6 +85,7 @@ textarea #parts {
   left: 5px;
   width: 50px;
   height: auto;
+  z-index: 100;
 }
 
 #imgright {
@@ -93,6 +94,7 @@ textarea #parts {
   right: 5px;
   width: 50px;
   height: auto;
+  z-index: 100;
 }
 
 #activeOrders>a>.row,
