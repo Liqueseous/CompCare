@@ -58,8 +58,8 @@ jQuery(document).ready(function ($) {
 });
 
 function enableEdit() {
-  document.querySelector("#imgleft").innerHTML = "<a href=\"javascript:disableEdit();\" alt=\"Cancel Changes\"><img src=./resources/ticket/cancel.svg></a>"
-  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:save();\" alt=\"Save Changes\"><img src=./resources/ticket/save.svg></a>"
+  document.querySelector("#imgleft").innerHTML = "<a href=\"javascript:disableEdit();\" alt=\"Cancel Changes\" data-toggle=\"tooltip\" title=\"Cancel Changes\"><img src=./resources/ticket/cancel.svg></a>"
+  document.querySelector("#imgright").innerHTML = "<a href=\"javascript:save();\" alt=\"Save Changes\" data-toggle=\"tooltip\" title=\"Save Changes\"><img src=./resources/ticket/save.svg></a>"
 
   var inputs = document.querySelectorAll("input, select, textarea")
   var labels = document.querySelectorAll(".form-group label")
