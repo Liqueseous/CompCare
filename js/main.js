@@ -119,8 +119,8 @@ $(document).ready(function () {
     e.preventDefault();
     const data = {
       name: $("#signUpForm #name").val(),
-      email: $("#signUpForm #email").val(),
-      password: $("#signUpForm #pass").val()
+      email: $("#signUpForm #sign-email").val(),
+      password: $("#signUpForm #sign-pass").val()
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/signup', data)
       .done((response) => {
@@ -141,8 +141,8 @@ $(document).ready(function () {
   $("#loginForm").on('submit', function (e) {
     e.preventDefault();
     const data = {
-      email: $("#loginForm #email").val(),
-      password: $("#loginForm #pass").val()
+      email: $("#loginForm #log-email").val(),
+      password: $("#loginForm #log-pass").val()
     }
     $.post('https://afternoon-waters-42339.herokuapp.com/login', data)
       .done((response) => {

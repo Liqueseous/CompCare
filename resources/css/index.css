@@ -111,16 +111,12 @@ h1 {
 
 /* FOOTER */
 
-.foot {
+.footer {
   position: absolute;
-  right: 0;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  height: auto;
   background-color: #0C1434;
   white-space: nowrap;
+  width: 100%;
 }
 
 /* SECONDARY HELP TEXT */
@@ -166,9 +162,9 @@ label.error {
   color: #FF3B3B;
 }
 
-#loginError, #signUpError {
+#loginError,
+#signUpError {
   color: #FF3B3B;
   font-weight: 700;
   text-transform: capitalize;
-
 }

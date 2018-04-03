@@ -61,6 +61,15 @@ textarea {
   color: #000;
 }
 
+@media only screen and (min-width: 360px) and (max-width: 480px) {
+  #content {
+    margin-top: 0;
+    padding-top: 70px;
+    padding-bottom: 3em;
+    color: #000;
+  }
+}
+
 .group2 a {
   color: #fff;
 }
