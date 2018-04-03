@@ -1,3 +1,19 @@
+// SET TOOLTIPSTER DEFAULTS
+$.tooltipster.setDefaults({
+  side: ['left', 'right', 'top'],
+  theme: 'tooltipster-shadow',
+  animation: 'grow',
+});
+
+// DOCUMENT INFORMATION HAS BEEN RECEIVED
+jQuery(document).ready(function ($) {
+  changeStatusIcon("status_field", "status_img");
+  formSetup();
+
+  // LOAD TOOLTIPSTER PLUGIN
+  $('.tipster').tooltipster();
+});
+
 function changeStatusIcon(listener, icon) {
   var status = document.getElementById(listener);
   var icon = document.getElementById(icon);
@@ -52,10 +68,6 @@ function checkForm() {
   changeStatusIcon("status_field", "status_img");
   formSetup();
 };
-jQuery(document).ready(function ($) {
-  changeStatusIcon("status_field", "status_img");
-  formSetup();
-});
 
 function enableEdit() {
   $('.tipster').tooltipster('destroy');

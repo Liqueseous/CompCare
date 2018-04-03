@@ -10,10 +10,20 @@ $(window).on('load', function () {
   addClosedOrder("Actual President", "012345", "01/23/45", "12/12/12", "Completed Successfully");
 });
 
+// SET TOOLTIPSTER DEFAULTS
+$.tooltipster.setDefaults({
+  side: ['left', 'right', 'top'],
+  theme: 'tooltipster-shadow',
+  animation: 'grow',
+});
+
+// DOCUMENT INFORMATION HAS BEEN RECEIVED
 jQuery(document).ready(function ($) {
   $(".clickable-row").click(function () {
     window.location = $(this).data("href");
   });
+  // LOAD TOOLTIPSTER PLUGIN
+  $('.tipster').tooltipster();
 });
 
 function showOpen() {
