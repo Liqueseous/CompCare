@@ -38,6 +38,12 @@ var outEase = anime({
   direction: 'standard',
   easing: 'easeOutCubic'
 });
+// SET TOOLTIPSTER DEFAULTS
+$.tooltipster.setDefaults({
+  side: ['left', 'right', 'top'],
+  theme: 'tooltipster-shadow',
+  animation: 'grow',
+});
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
 $(document).ready(function () {

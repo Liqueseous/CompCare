@@ -58,6 +58,7 @@ jQuery(document).ready(function ($) {
 });
 
 function enableEdit() {
+  $('.tipster').tooltipster('destroy');
   $('#imgleft > a').attr('href', 'javascript:disableEdit();');
   $('#imgleft > a').attr('alt', 'Cancel Changes');
   $('#imgleft > a').attr('class', 'tipster');
@@ -79,6 +80,7 @@ function enableEdit() {
   labels.forEach(function (e) {
     e.style.color = "#000"
   });
+  $('.tipster').tooltipster();
 }
 
 function save() {
@@ -86,7 +88,7 @@ function save() {
 }
 
 function disableEdit() {
-
+  $('.tipster').tooltipster('destroy');
   $('#imgleft > a').removeAttr('title');
   $('#imgleft > a').removeAttr('class');
   $('#imgleft > a').removeAttr('alt');
@@ -114,4 +116,5 @@ function disableEdit() {
   labels.forEach(function (e) {
     e.style.color = "#777"
   });
+  $('.tipster').tooltipster();
 }
