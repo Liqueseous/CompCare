@@ -15,6 +15,15 @@ $.tooltipster.setDefaults({
   side: ['left', 'right', 'top'],
   theme: 'tooltipster-shadow',
   animation: 'grow',
+  trigger: 'click',
+  events: {
+    def:     "mouseover,mouseout",
+    label:     "mouseover,mouseout",
+    input:   "focus,blur",
+    select:   "focus,blur",
+    widget:  "focus mouseover,blur mouseout",
+    tooltip: "mouseover,mouseout"
+  }
 });
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
@@ -53,7 +62,7 @@ function showClosed() {
 //                     str     str            str        str           str              str
 function addActiveOrder(circle, customer_name, repair_id, date_entered, completion_time, tech) {
   var table = document.getElementById("activeOrders")
-  var link = "./ticket.html?" + repair_id; // setup anchor link
+  var link = "./ticket.html?t=" + repair_id; // setup anchor link
   var anchor = document.createElement("a"); // create anchor
   anchor.setAttribute('href', link); // set anchor href
   var row = document.createElement("div"); // create row
@@ -82,7 +91,7 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
 //                      str            str        str           str          str
 function addClosedOrder(customer_name, repair_id, date_entered, date_closed, resolution_code) {
   var table = document.getElementById("closedOrders")
-  var link = "./ticket.html?" + repair_id; // setup anchor link
+  var link = "./ticket.html?t=" + repair_id; // setup anchor link
   var anchor = document.createElement("a"); // create anchor
   anchor.setAttribute('href', link); // set anchor href
   var row = document.createElement("div"); // create row
@@ -117,4 +126,16 @@ function resetClosedOrders() {
   for (i = table_length - 1; i > 1; i--) {
     table.deleteRow(i);
   }
+}
+
+// CREATE NEW TICKET
+function newTicket() {
+  //retrieve users previous ticket number
+
+  //increment ticket number
+  var new_id = 'NEW';
+  //set users new last ticket number
+  
+  //call ticket page with new ticket and its new ticket number
+  window.location.href = "./ticket.html?t=" + new_id;
 }

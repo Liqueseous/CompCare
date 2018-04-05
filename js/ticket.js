@@ -12,6 +12,11 @@ jQuery(document).ready(function ($) {
 
   // LOAD TOOLTIPSTER PLUGIN
   $('.tipster').tooltipster();
+
+  // CHECK IF NEW TICKET
+  if (getAllUrlParams().t == 'new') {
+    isNewTicket();
+  };
 });
 
 function changeStatusIcon(listener, icon) {
@@ -32,6 +37,8 @@ function formSetup() {
   var status = document.getElementById("status_field");
   var onHold = document.querySelectorAll(".onHold");
   var closed = document.querySelectorAll(".closed");
+
+
   console.log("formsetup");
   if (status.value == "Open") {
     onHold.forEach(function (e) {
@@ -129,4 +136,23 @@ function disableEdit() {
     e.style.color = "#777"
   });
   $('.tipster').tooltipster();
+}
+
+// TICKET IT NEW LETS UPDATE THE SAVE BUTTON
+function isNewTicket() {
+  enableEdit();
+  $('#imgleft > a').attr('href', 'dashboard.html');
+  $('#imgright > a').attr('href', 'javascript:createTicket();');
+  // RETRIEVE USERS LAST REPAIR ID
+  var num = 920;
+
+  num += 1;
+  $('.ticket_header').prepend('New ');
+  $('.ticket_num').text(num);
+}
+
+// CREATE NEW TICKET IN THE DATABASE
+function createTicket() {
+  alert('TICKET CREATED');
+  // CREATE TICKET VIA AJAX CALL
 }

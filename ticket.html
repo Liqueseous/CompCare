@@ -64,7 +64,9 @@
       <div class="container ticket_space">
         <div class="panel">
           <div class="panel-heading">
-            <span class="panel-title">Ticket # XXXXXXX</span>
+            <span class="panel-title ticket_header">Ticket #
+              <span class="ticket_num">NULL</span>
+            </span>
           </div>
           <div class="panel-body">
             <form>
@@ -185,6 +187,7 @@
                       <option value="misc-cab">Misc Cables</option>
                       <option value="other">Other-See Notes</option>
                     </select>
+                    <small><i class="fas fa-exclamation-triangle"></i> Hold CTRL or CMD to select Multiple Entries</small>
                   </div>
                 </div>
               </div>
@@ -202,6 +205,7 @@
       <div id="imgright">
         <a href="javascript:enableEdit();" alt="Edit" class="tipster" title="Edit Ticket">
           <img src=./resources/ticket/edit.svg>
+        </a>
       </div>
       <!-- END CONTENT SECTION -->
       <!-- END CONTAINER -->
