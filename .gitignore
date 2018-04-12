@@ -1,3 +1,5 @@
+/node_modules
+/*.env
 resources/background/.DS_Store
 .DS_Store
 MockupResources/.DS_Store

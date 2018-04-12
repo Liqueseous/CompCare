@@ -9,8 +9,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CompCare/Privacy</title>
-  <meta name="description" content="compcare/privacy Computer Repair Management Solution">
+  <title>CompCare/Contact</title>
+  <meta name="description" content="compcare/contact Computer Repair Management Solution">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -33,7 +33,7 @@
       <nav class="navbar navbar-dark navbar-expand-lg navbar-expand-md fixed-top">
         <div class="container">
           <!-- https://fontawesome.com/ -->
-          <a href="index.html" class="navbar-brand hvr-grow">
+          <a href="index" class="navbar-brand hvr-grow">
             <img src="./resources/logo/CompCar-logo.png" width="30" height="30" class="d-inline-block align-top" alt="CompCareLogo"> CompCare
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-nav-demo" aria-controls="navbarTogglerDemo02"
@@ -43,13 +43,13 @@
           <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a href="index.html" class="nav-link hvr-grow">Home</a>
+                <a href="index" class="nav-link hvr-grow">Home</a>
               </li>
               <li class="nav-item">
-                <a href="about.html" class="nav-link hvr-grow">About</a>
+                <a href="about" class="nav-link hvr-grow">About</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link hvr-grow">Contact</a>
+                <a href="contact" class="nav-link active hvr-grow">Contact</a>
               </li>
             </ul>
             <ul class="navbar-nav navbar-right">
@@ -72,7 +72,7 @@
       <section>
         <div class="header">
           <div class="group">
-            <h1>Privacy Policy</h1>
+            <h1>Contact</h1>
             <div class="group2">
               <a href="#" class="scroll hvr-hang">
                 <i class="fas fa-arrow-circle-down"></i>
@@ -85,27 +85,54 @@
       <!-- CONTENT SECTION -->
       <section id="section" class="light-bg">
         <div class="container">
-          <div id="content" class="row">
-            <div class="col-lg-12">
-
-              <p class="left">By accessing or using the CompCare Inc. Web site, you agree to the terms of this Online Privacy Policy, as
-                outlined below. If you do not agree to these terms, please do not access or use this site.</p>
-
-              <h3>Collection of Personal Information</h3>
-              <hr id="full">
-              <p class="left">When you engage in certain activities on this site, you may be asked to provide certain information about yourself
-                by filling out and submitting an online form. It is completely optional for you to engage in these activities.
-                If you elect to engage in these activities, however, you may be required to provide personal information,
-                such as your name, mailing address, e-mail address, and other personal identifying information.</p>
-
-              <p class="left">When you submit personal information, you understand and agree that CompCare may transfer, store, and process
-                your information in any of the countries in which CompCare maintain offices, including without limitation,
-                the United States.</p>
-
-              <p class="left">CompCare collects this information in order to record and support your participation in the activities you
-                select. CompCare also uses information that you provide as part of our effort to keep you informed about
-                product upgrades, special offers, and other CompCare products and services. CompCare will never sell or share
-                your information with other companies.</p>
+          <div id="content" class="row main">
+            <div class="col-md-8 col-sm-6">
+              <!-- contact form submission  https://sendgrid.com/solutions/email-api/ Need Node server setup first -->
+              <!-- START CONTACT FORM -->
+              <form action="" method="post" id="contactForm">
+                <div class="form-group row">
+                  <div class="col">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="contact-name" name="name" aria-describedby="nameHelp" placeholder="Full Name">
+                  </div>
+                  <div class="col">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col">
+                    <label for="message">Message</label>
+                    <textarea type="message" class="form-control" id="message" name="message" placeholder="New Message"></textarea>
+                    <small class="text-muted">All fields are required</small>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary hvr-back-pulse" id="loginSubmit">Submit</button>
+                </div>
+              </form>
+              <!-- END OF CONTACT FORM -->
+            </div>
+            <div class="col-sm-4" id="sidebar">
+              <h2>Contact Us</h2>
+              <div>
+                <h4>Email</h4>
+                <p>
+                  <a href="mailto:support@delosh.net">support@delosh.net</a>
+                </p>
+              </div>
+              <div>
+                <h4>Telephone</h4>
+                <p>
+                  <a href="tel:+9990981234">(999)-098-1234</a>
+                </p>
+              </div>
+              <div>
+                <h4>Address</h4>
+                <p>CompCare</p>
+                <p>1 Univeristy Avenue</p>
+                <p>Lowell, MA 01851</p>
+              </div>
             </div>
           </div>
           <!-- END ROW -->
@@ -115,21 +142,21 @@
         <div class="footer">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 col-sm-3">
-                <a href="privacy.html" class="nav-link text-muted hvr-grow">Privacy</a>
+              <div class="col-md-4 col-sm-4">
+                <a href="privacy" class="nav-link text-muted hvr-grow">Privacy</a>
               </div>
-              <div class="col-md-4 col-sm-3">
-                <a href="contact.html" class="nav-link text-muted hvr-grow">Contact Us</a>
+              <div class="col-md-4 col-sm-4">
+                <a href="contact" class="nav-link text-muted hvr-grow">Contact Us</a>
               </div>
-              <div class="col-md-4 col-sm-3">
-                <a href="index.html" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
+              <div class="col-md-4 col-sm-4">
+                <a href="index" class="nav-link text-muted hvr-grow">&copy; 2018 CompCare Inc.</a>
               </div>
             </div>
           </div>
         </div>
         <!-- END FOOTER -->
       </section>
-      <!-- END OF CONTENT SECTION -->
+      <!-- END CONTENT SECTION -->
     </div>
     <!-- Login Modal -->
     <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
@@ -158,9 +185,9 @@
               </div> -->
             </div>
             <div class="modal-footer">
-                <div id="loginError"></div>
+              <div id="loginError"></div>
               <button type="button" class="btn btn-secondary outBut">Close</button>
-              <button class="btn btn-primary hvr-back-pulse" id="loginSubmit">Submit</button>
+              <button class="btn btn-primary hvr-back-pulse" id="loginSubmit ">Submit</button>
             </div>
           </form>
         </div>
@@ -201,14 +228,15 @@
               </div>
             </div>
             <div class="modal-footer">
-                <div id="signUpError"></div>
-              <button type="button" class="btn btn-secondary outBut">Close</button>
-              <button class="btn btn-primary hvr-back-pulse" id="signUpSubmit">Submit</button>
+              <div id="signUpError"></div>
+              <button type="button" class="btn btn-secondary outBut" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary hvr-back-pulse">Submit</button>
             </div>
           </form>
         </div>
       </div>
     </div>
+
 
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

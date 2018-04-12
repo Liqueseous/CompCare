@@ -1,0 +1,26 @@
+{
+  "name": "compcare",
+  "version": "1.0.0",
+  "engines": {
+    "node": "9.11.1",
+    "npm": "5.6.0"
+  },
+  "description": "Front End Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liqueseous/CompCare.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Liqueseous/CompCare/issues"
+  },
+  "homepage": "https://github.com/Liqueseous/CompCare#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
