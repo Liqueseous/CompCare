@@ -1,3 +1,32 @@
+// Set up fields
+function setupFields(data) {
+  const {
+    ticketNumber,
+    customerName,
+    phoneNumber,
+    dateReceived,
+    assignee,
+    shortDescription,
+    computerMakeNModel,
+    estComplDate,
+    description,
+    initDiagnosis,
+    repairNotes
+  } = data;
+
+  document.getElementById("ticket_number").innerText = ticketNumber;  
+  document.getElementById("customer_name").value = customerName;
+  document.getElementById("phone_number").value = phoneNumber;
+  document.getElementById("date_received").value = dateReceived;
+  document.getElementById("assigned_to").value = assignee;
+  document.getElementById("short_disc").value = shortDescription;
+  document.getElementById("computer_make").value = computerMakeNModel;
+  document.getElementById("est_completion").value = estComplDate;
+  document.getElementById("item_desc").value = description;
+  document.getElementById("initial_diag").value = initDiagnosis;
+  document.getElementById("repair_notes").value = repairNotes;
+}
+
 // SET TOOLTIPSTER DEFAULTS
 $.tooltipster.setDefaults({
   side: ['left', 'right', 'top'],
@@ -9,6 +38,22 @@ $.tooltipster.setDefaults({
 jQuery(document).ready(function ($) {
   changeStatusIcon("status_field", "status_img");
   formSetup();
+
+  const ticketNum = getAllUrlParams().t;
+  if (ticketNum !== 'new') {
+    $.ajax({
+      url: 'http://localhost:3000/tickets/' + ticketNum,
+      headers: {'Authorization': localStorage.getItem('jwtToken')},
+      type: 'GET'
+    })
+    .done((response) => {
+      setupFields(response);
+    })
+    .fail((error) => {
+      const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+      console.log(loginErrMsg);
+    });
+  }
 
   // LOAD TOOLTIPSTER PLUGIN
   $('.tipster').tooltipster();
@@ -102,10 +147,6 @@ function enableEdit() {
   $('.tipster').tooltipster();
 }
 
-function save() {
-  disableEdit();
-}
-
 function disableEdit() {
   $('.tipster').tooltipster('destroy');
   $('#imgleft > a').removeAttr('title');
@@ -155,4 +196,10 @@ function isNewTicket() {
 function createTicket() {
   alert('TICKET CREATED');
   // CREATE TICKET VIA AJAX CALL
+}
+
+// SAVE EDITS TO TICKET
+function save() {
+  disableEdit();
+  // UPDATE TICKET VIA AJAX CALL
 }
