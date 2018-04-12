@@ -1,6 +1,7 @@
 // Set up fields
 function setupFields(data) {
   const {
+    ticketNumber,
     customerName,
     phoneNumber,
     dateReceived,
@@ -13,13 +14,17 @@ function setupFields(data) {
     repairNotes
   } = data;
 
-  document.getElementById("#customer_name").value = customerName;
-  document.getElementById("#phone_number").value = phoneNumber;
-  document.getElementById("#date_received").value = dateReceived;
-  document.getElementById("#assigned_to").value = assignee;
-  document.getElementById("#short_desc").value = shortDescription;
-  document.getElementById("#computer_make").value = computerMakeNModel;
-  document.getElementById("#est_completion").value = estComplDate;
+  document.getElementById("ticket_number").innerText = ticketNumber;  
+  document.getElementById("customer_name").value = customerName;
+  document.getElementById("phone_number").value = phoneNumber;
+  document.getElementById("date_received").value = dateReceived;
+  document.getElementById("assigned_to").value = assignee;
+  document.getElementById("short_disc").value = shortDescription;
+  document.getElementById("computer_make").value = computerMakeNModel;
+  document.getElementById("est_completion").value = estComplDate;
+  document.getElementById("item_desc").value = description;
+  document.getElementById("initial_diag").value = initDiagnosis;
+  document.getElementById("repair_notes").value = repairNotes;
 }
 
 // SET TOOLTIPSTER DEFAULTS
@@ -42,8 +47,7 @@ jQuery(document).ready(function ($) {
       type: 'GET'
     })
     .done((response) => {
-      console.log(response);
-      setupFields(this.response);
+      setupFields(response);
     })
     .fail((error) => {
       const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
@@ -143,10 +147,6 @@ function enableEdit() {
   $('.tipster').tooltipster();
 }
 
-function save() {
-  disableEdit();
-}
-
 function disableEdit() {
   $('.tipster').tooltipster('destroy');
   $('#imgleft > a').removeAttr('title');
@@ -196,4 +196,10 @@ function isNewTicket() {
 function createTicket() {
   alert('TICKET CREATED');
   // CREATE TICKET VIA AJAX CALL
+}
+
+// SAVE EDITS TO TICKET
+function save() {
+  disableEdit();
+  // UPDATE TICKET VIA AJAX CALL
 }

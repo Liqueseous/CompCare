@@ -204,7 +204,7 @@ $(document).ready(function () {
         const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(signupErrorMsg);
         document.getElementById('signUpError').innerHTML = signupErrorMsg;
-        swal("Login Failed","Please Try Again", {
+        swal("Login Failed",signupErrorMsg, {
           icon: "error",
         });
       });
@@ -236,7 +236,7 @@ $(document).ready(function () {
         const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(loginErrMsg);
         document.getElementById('loginError').innerHTML = loginErrMsg;
-        swal("Login Failed","Please Try Again", {
+        swal("Login Failed",loginErrMsg, {
           icon: "error",
         });
       });
