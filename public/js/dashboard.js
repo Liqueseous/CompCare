@@ -1,13 +1,22 @@
-// JUST TO TEST TO SHOW THE DASHBOARD
+// Get USER Tickets from API
 $(window).on('load', function () {
-  addActiveOrder("open", "Michael Blue", "015826", "11/11/11", "20 Hours", "Ziltoild");
-  addActiveOrder("inProgress", "Donald J. Tump", "000666", "66/66/66", "XXX Hours", "Democracy");
-  addActiveOrder("onHold", "Actual President", "012345", "01/23/45", "soon", "doge");
-  addActiveOrder("open", "These are temporary", "located", "in the file", "dashboard.js", "with instruction");
-
-  addClosedOrder("Michael Blue", "015826", "11/11/11", "12/12/12", "Completed Successfully");
-  addClosedOrder("Donald J. Tump", "000666", "66/66/66", "12/12/12", "Completed Successfully");
-  addClosedOrder("Actual President", "012345", "01/23/45", "12/12/12", "Completed Successfully");
+  $.ajax({
+    url: 'http://localhost:3000/tickets',
+    headers: {'Authorization': localStorage.getItem('jwtToken')},
+    type: 'GET'
+  })
+  .done((response) => {
+    if (Array.isArray(response)) {
+      for (let i = 0; i < response.length; i++) {
+        const { status, customerName, ticketNumber, dateReceived, estComplDate, assignee } = response[i];
+        addActiveOrder(status.toLowerCase(), customerName, ticketNumber, dateReceived, estComplDate, assignee);
+      }
+    }
+  })
+  .fail((error) => {
+    const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+    console.log(loginErrMsg);
+  });
 });
 
 // SET TOOLTIPSTER DEFAULTS

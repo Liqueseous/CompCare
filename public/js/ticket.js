@@ -1,3 +1,48 @@
+// Get Ticket Info from API
+$(window).on('load', function () {
+  const ticketNum = getAllUrlParams().t;
+  if (ticketNum !== 'new') {
+    $.ajax({
+      url: 'http://localhost:3000/tickets/' + ticketNum,
+      headers: {'Authorization': localStorage.getItem('jwtToken')},
+      type: 'GET'
+    })
+    .done((response) => {
+      console.log(response);
+    })
+    .fail((error) => {
+      const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+      console.log(loginErrMsg);
+    });
+  }
+});
+
+// Set up fields
+function setupFields(data) {
+  const { 
+    ticketNumber,
+    customerName,
+    phoneNumber,
+    dateReceived,
+    assignee,
+    shortDescription,
+    computerMakeNModel,
+    estComplDate,
+    description,
+    initDiagnosis,
+    repairNotes
+  } = data;
+
+  document.getElementById("#customer_name").innerHTML = ticketNumber;
+  document.getElementById("#customer_name").value = customerName;
+  document.getElementById("#phone_number").value = phoneNumber;
+  document.getElementById("#date_received").value = dateReceived;
+  document.getElementById("#assigned_to").value = assignee;
+  document.getElementById("#short_desc").value = shortDescription;
+  document.getElementById("#computer_make").value = computerMakeNModel;
+  document.getElementById("#est_completion").value = estComplDate;
+}
+
 // SET TOOLTIPSTER DEFAULTS
 $.tooltipster.setDefaults({
   side: ['left', 'right', 'top'],

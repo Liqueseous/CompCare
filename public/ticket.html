@@ -65,7 +65,7 @@
         <div class="panel">
           <div class="panel-heading">
             <span class="panel-title ticket_header">Ticket #
-              <span class="ticket_num">NULL</span>
+              <span class="ticket_num" id="ticket_number">NULL</span>
             </span>
           </div>
           <div class="panel-body">
@@ -84,33 +84,33 @@
                   </div>
                   <div class="form-group col-sm-3">
                     <label for="customer_name">Customer Name</label>
-                    <input type="text" name="customer_name" value="" disabled>
+                    <input type="text" name="customer_name" id="customer_name" value="" disabled>
                   </div>
                   <div class="form-group col-sm-3">
                     <label for="phone_number">Phone Number</label>
-                    <input type="text" name="phone_number" value="" disabled>
+                    <input type="text" name="phone_number" id="phone_number" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="date-received">Date Received</label>
-                    <input type="text" name="date_received" value="" disabled>
+                    <input type="text" name="date_received" id="date-received" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="assigned_to">Assigned To</label>
-                    <input type="text" name="assigned_to" value="" disabled>
+                    <input type="text" name="assigned_to" id="assigned_to" value="" disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-sm-5">
                     <label for="short_disc">Short Description of Issue</label>
-                    <input type="text" name="short_disc" value="" disabled>
+                    <input type="text" name="short_disc" id="short_disc" value="" disabled>
                   </div>
                   <div class="form-group col-sm-3">
                     <label for="computer-make">Computer Make/Model</label>
-                    <input type="text" name="computer_make" value="" disabled>
+                    <input type="text" name="computer_make" id="computer_make" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="est_completion">Estimated Completion</label>
-                    <input type="text" name="est_completion" value="" disabled>
+                    <input type="text" name="est_completion" id="est_completion" value="" disabled>
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="form_factor">Form Factor</label>
@@ -125,7 +125,7 @@
                 <div class="row">
                   <div class="form-group col-sm-10">
                     <label for="item_desc">Description of Issue</label>
-                    <textarea name="item_desc" rows="8" disabled></textarea>
+                    <textarea name="item_desc" rows="8" id="item_desc" disabled></textarea>
                   </div>
                   <div class="form-group col-sm-2">
                     <div class="row">
@@ -142,7 +142,7 @@
                     <div class="row">
                       <div class="form-group col onHold">
                         <label for="reason_for_hold">Reason For Hold</label>
-                        <input type="text" name="reason_for_hold" value="" disabled>
+                        <input type="text" name="reason_for_hold" id="reason_for_hold" value="" disabled>
                       </div>
                       <div class="form-group col closed">
                         <label for="res_code">Resolution Code</label>
@@ -162,13 +162,13 @@
                     <div class="row">
                       <div class="form-group col">
                         <label for="initial_diag">Initial Diagnosis</label>
-                        <textarea name="initial_diag" disabled></textarea>
+                        <textarea name="initial_diag" id="initial_diag" disabled></textarea>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col">
                         <label for="repair_notes">Repair Notes</label>
-                        <textarea name="repair_notes" disabled></textarea>
+                        <textarea name="repair_notes" id="repair_notes" disabled></textarea>
                       </div>
                     </div>
                   </div>
