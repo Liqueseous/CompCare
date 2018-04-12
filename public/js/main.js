@@ -16,19 +16,19 @@ function getAllUrlParams(url) {
     // split our query string into its component parts
     var arr = queryString.split('&');
 
-    for (var i=0; i<arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
       // separate the keys and the values
       var a = arr[i].split('=');
 
       // in case params look like: list[]=thing1&list[]=thing2
       var paramNum = undefined;
-      var paramName = a[0].replace(/\[\d*\]/, function(v) {
-        paramNum = v.slice(1,-1);
+      var paramName = a[0].replace(/\[\d*\]/, function (v) {
+        paramNum = v.slice(1, -1);
         return '';
       });
 
       // set parameter value (use 'true' if empty)
-      var paramValue = typeof(a[1])==='undefined' ? true : a[1];
+      var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
 
       // (optional) keep case consistent
       paramName = paramName.toLowerCase();
@@ -192,11 +192,21 @@ $(document).ready(function () {
         const token = resData.token;
         console.log(signupMessage);
         localStorage.setItem('jwtToken', token);
+        swal("Signup Successful", {
+          icon: "success",
+          buttons: false,
+        });
+        setTimeout(function () {
+          window.location.href = "dashboard.html"; //will redirect
+        }, 2000); //will call the function after 2 secs.
       })
       .fail((error) => {
         const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(signupErrorMsg);
         document.getElementById('signUpError').innerHTML = signupErrorMsg;
+        swal("Login Failed","Please Try Again", {
+          icon: "error",
+        });
       });
   });
 
@@ -214,11 +224,21 @@ $(document).ready(function () {
         const token = resData.token;
         console.log(loginMessage);
         localStorage.setItem('jwtToken', token);
+        swal("Login Successful", {
+          icon: "success",
+          buttons: false,
+        });
+        setTimeout(function () {
+          window.location.href = "dashboard.html"; //will redirect
+        }, 2000); //will call the function after 1 secs.
       })
       .fail((error) => {
         const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(loginErrMsg);
         document.getElementById('loginError').innerHTML = loginErrMsg;
+        swal("Login Failed","Please Try Again", {
+          icon: "error",
+        });
       });
   });
 
