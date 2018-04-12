@@ -1,26 +1,6 @@
-// Get Ticket Info from API
-$(window).on('load', function () {
-  const ticketNum = getAllUrlParams().t;
-  if (ticketNum !== 'new') {
-    $.ajax({
-      url: 'http://localhost:3000/tickets/' + ticketNum,
-      headers: {'Authorization': localStorage.getItem('jwtToken')},
-      type: 'GET'
-    })
-    .done((response) => {
-      console.log(response);
-    })
-    .fail((error) => {
-      const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
-      console.log(loginErrMsg);
-    });
-  }
-});
-
 // Set up fields
 function setupFields(data) {
-  const { 
-    ticketNumber,
+  const {
     customerName,
     phoneNumber,
     dateReceived,
@@ -33,7 +13,6 @@ function setupFields(data) {
     repairNotes
   } = data;
 
-  document.getElementById("#customer_name").innerHTML = ticketNumber;
   document.getElementById("#customer_name").value = customerName;
   document.getElementById("#phone_number").value = phoneNumber;
   document.getElementById("#date_received").value = dateReceived;
@@ -54,6 +33,23 @@ $.tooltipster.setDefaults({
 jQuery(document).ready(function ($) {
   changeStatusIcon("status_field", "status_img");
   formSetup();
+
+  const ticketNum = getAllUrlParams().t;
+  if (ticketNum !== 'new') {
+    $.ajax({
+      url: 'http://localhost:3000/tickets/' + ticketNum,
+      headers: {'Authorization': localStorage.getItem('jwtToken')},
+      type: 'GET'
+    })
+    .done((response) => {
+      console.log(response);
+      setupFields(this.response);
+    })
+    .fail((error) => {
+      const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+      console.log(loginErrMsg);
+    });
+  }
 
   // LOAD TOOLTIPSTER PLUGIN
   $('.tipster').tooltipster();
