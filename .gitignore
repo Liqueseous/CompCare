@@ -1,9 +1,9 @@
-/node_modules
-resources/background/.DS_Store
+node_modules/
+public/resources/background/.DS_Store
 .DS_Store
 MockupResources/.DS_Store
-js/.DS_Store
-resources/.DS_Store
-resources/dashboard/.DS_Store
-resources/logo/.DS_Store
-resources/ticket/.DS_Store
+public/js/.DS_Store
+public/resources/.DS_Store
+public/resources/dashboard/.DS_Store
+public/resources/logo/.DS_Store
+public/resources/ticket/.DS_Store
