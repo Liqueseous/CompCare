@@ -114,7 +114,7 @@
                   </div>
                   <div class="form-group col-sm-2">
                     <label for="form_factor">Form Factor</label>
-                    <select name="form_factor" disabled>
+                    <select name="form_factor" id="form_factor" disabled>
                       <option value="Tower">Tower</option>
                       <option value="Laptop">Laptop</option>
                       <option value="Single">Single</option>
@@ -131,7 +131,7 @@
                     <div class="row">
                       <div class="form-group col">
                         <label for="location">Location</label>
-                        <select name="location" disabled>
+                        <select name="location" id="location_field" disabled>
                           <option value="Bay 1">Bay 1</option>
                           <option value="Bay 2">Bay 2</option>
                           <option value="Bay 3">Bay 3</option>
@@ -146,7 +146,7 @@
                       </div>
                       <div class="form-group col closed">
                         <label for="res_code">Resolution Code</label>
-                        <select name="res_code" size="6" disabled>
+                        <select name="res_code" id="res_code" size="6" disabled>
                           <option value="comp">Completed Successfully</option>
                           <option value="noFix">Not Fixable</option>
                           <option value="custX">Customer Cancelled</option>
@@ -174,7 +174,7 @@
                   </div>
                   <div class="form-group col-sm-2 onHold" style="display:none">
                     <label for="parts_needed">Parts Needed</label>
-                    <select name="parts_needed" size="11" multiple disabled>
+                    <select name="parts_needed" id="parts_needed" size="11" multiple disabled>
                       <option value="mobo">Motherboard</option>
                       <option value="cpu">CPU</option>
                       <option value="cooler">CPU Cooler</option>

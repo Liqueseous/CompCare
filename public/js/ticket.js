@@ -2,6 +2,7 @@
 function setupFields(data) {
   const {
     ticketNumber,
+    status,
     customerName,
     phoneNumber,
     dateReceived,
@@ -9,22 +10,70 @@ function setupFields(data) {
     shortDescription,
     computerMakeNModel,
     estComplDate,
+    formFactor,
     description,
+    location,
     initDiagnosis,
     repairNotes
   } = data;
 
-  document.getElementById("ticket_number").innerText = ticketNumber;  
-  document.getElementById("customer_name").value = customerName;
-  document.getElementById("phone_number").value = phoneNumber;
-  document.getElementById("date_received").value = dateReceived;
-  document.getElementById("assigned_to").value = assignee;
-  document.getElementById("short_disc").value = shortDescription;
-  document.getElementById("computer_make").value = computerMakeNModel;
-  document.getElementById("est_completion").value = estComplDate;
-  document.getElementById("item_desc").value = description;
-  document.getElementById("initial_diag").value = initDiagnosis;
-  document.getElementById("repair_notes").value = repairNotes;
+  switch(status) {
+    case 'Open' || 'In Progress':
+      document.getElementById("ticket_number").innerText = ticketNumber;
+      document.getElementById("status_field").value = status;
+      document.getElementById("customer_name").value = customerName;
+      document.getElementById("phone_number").value = phoneNumber;
+      document.getElementById("date_received").value = dateReceived;
+      document.getElementById("assigned_to").value = assignee;
+      document.getElementById("short_disc").value = shortDescription;
+      document.getElementById("computer_make").value = computerMakeNModel;
+      document.getElementById("est_completion").value = estComplDate;
+      document.getElementById("form_factor").value = formFactor;
+      document.getElementById("item_desc").value = description;
+      document.getElementById("location_field").value = location;
+      document.getElementById("initial_diag").value = initDiagnosis;
+      document.getElementById("repair_notes").value = repairNotes;
+      break;
+    case 'On Hold':
+      const { partsNeeded, holdReason } = data;
+      document.getElementById("ticket_number").innerText = ticketNumber;
+      document.getElementById("status_field").value = status;
+      document.getElementById("customer_name").value = customerName;
+      document.getElementById("phone_number").value = phoneNumber;
+      document.getElementById("date_received").value = dateReceived;
+      document.getElementById("assigned_to").value = assignee;
+      document.getElementById("short_disc").value = shortDescription;
+      document.getElementById("computer_make").value = computerMakeNModel;
+      document.getElementById("est_completion").value = estComplDate;
+      document.getElementById("form_factor").value = formFactor;
+      document.getElementById("item_desc").value = description;
+      document.getElementById("location_field").value = location;
+      document.getElementById("parts_needed").value = partsNeeded;
+      document.getElementById("reason_for_hold").value = holdReason;
+      document.getElementById("initial_diag").value = initDiagnosis;
+      document.getElementById("repair_notes").value = repairNotes;
+      break;
+    case 'Closed':
+      const { resolutionCode } = data;
+      document.getElementById("ticket_number").innerText = ticketNumber;
+      document.getElementById("status_field").value = status;
+      document.getElementById("customer_name").value = customerName;
+      document.getElementById("phone_number").value = phoneNumber;
+      document.getElementById("date_received").value = dateReceived;
+      document.getElementById("assigned_to").value = assignee;
+      document.getElementById("short_disc").value = shortDescription;
+      document.getElementById("computer_make").value = computerMakeNModel;
+      document.getElementById("est_completion").value = estComplDate;
+      document.getElementById("form_factor").value = formFactor;
+      document.getElementById("item_desc").value = description;
+      document.getElementById("location_field").value = location;
+      document.getElementById("initial_diag").value = initDiagnosis;
+      document.getElementById("repair_notes").value = repairNotes;
+      document.getElementById("res_code").value = resolutionCode;
+      break;
+    default:
+      console.log('Order Status Error...');
+  }
 }
 
 // SET TOOLTIPSTER DEFAULTS
@@ -50,8 +99,7 @@ jQuery(document).ready(function ($) {
       setupFields(response);
     })
     .fail((error) => {
-      const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
-      console.log(loginErrMsg);
+      console.log(error);
     });
   }
 
@@ -59,7 +107,7 @@ jQuery(document).ready(function ($) {
   $('.tipster').tooltipster();
 
   // CHECK IF NEW TICKET
-  if (getAllUrlParams().t == 'new') {
+  if (ticketNum == 'new') {
     isNewTicket();
   };
 });
@@ -129,7 +177,7 @@ function enableEdit() {
   $('#imgleft > a').attr('title', 'Cancel Changes');
   $('#imgleft > a > img').attr('src', './resources/ticket/cancel.svg');
 
-  $('#imgright > a').attr('href', 'javascript:disableEdit();');
+  $('#imgright > a').attr('href', 'javascript:save();');
   $('#imgright > a').attr('alt', 'Save Changes');
   $('#imgright > a').attr('class', 'tipster');
   $('#imgright > a').attr('title', 'Save Changes');
@@ -179,27 +227,129 @@ function disableEdit() {
   $('.tipster').tooltipster();
 }
 
-// TICKET IT NEW LETS UPDATE THE SAVE BUTTON
+// TICKET IS NEW LETS UPDATE THE SAVE BUTTON
 function isNewTicket() {
   enableEdit();
   $('#imgleft > a').attr('href', 'dashboard.html');
   $('#imgright > a').attr('href', 'javascript:createTicket();');
   // RETRIEVE USERS LAST REPAIR ID
-  var num = 920;
-
-  num += 1;
-  $('.ticket_header').prepend('New ');
-  $('.ticket_num').text(num);
+  let ticketNum = undefined;
+  $.ajax({
+    url: 'http://localhost:3000/tickets/',
+    headers: {'Authorization': localStorage.getItem('jwtToken')},
+    type: 'GET'
+  })
+  .done((response) => {
+    if (Array.isArray(response)) {
+      ticketNum = response.length;
+      // For visual purposes
+      ticketNum = ticketNum + 1;
+      $('.ticket_header').prepend('New ');
+      $('.ticket_num').text(ticketNum);
+    }
+  })
+  .fail((error) => {
+    console.log(error);
+  });
 }
 
 // CREATE NEW TICKET IN THE DATABASE
 function createTicket() {
   alert('TICKET CREATED');
+  disableEdit();
   // CREATE TICKET VIA AJAX CALL
+  // include ticketNumber
+  const ticketNumber = document.getElementById("ticket_number").innerText.toString();
+  const status = document.getElementById("status_field").value;
+  const customerName = document.getElementById("customer_name").value;
+  const phoneNumber = document.getElementById("phone_number").value;
+  const dateReceived = document.getElementById("date_received").value;
+  const assignee = document.getElementById("assigned_to").value;
+  const shortDescription = document.getElementById("short_disc").value;
+  const computerMakeNModel = document.getElementById("computer_make").value;
+  const estComplDate = document.getElementById("est_completion").value;
+  const formFactor = document.getElementById("form_factor").value;
+  const description = document.getElementById("item_desc").value;
+  const location = document.getElementById("location_field").value;
+  const initDiagnosis = document.getElementById("initial_diag").value;
+  const repairNotes = document.getElementById("repair_notes").value;
+
+  const ticketData = {
+    status,
+    customerName,
+    phoneNumber,
+    dateReceived,
+    assignee,
+    shortDescription,
+    computerMakeNModel,
+    estComplDate,
+    formFactor,
+    description,
+    location,
+    initDiagnosis,
+    repairNotes
+  }
+
+  $.ajax({
+    url: `http://localhost:3000/tickets/${ticketNumber}`,
+    headers: {'Authorization': localStorage.getItem('jwtToken')},
+    data: ticketData,
+    type: 'POST'
+  })
+  .done((response) => {
+    console.log(response);
+  })
+  .fail((error) => {
+    err = JSON.parse(error);
+    console.log(err);
+  });
 }
 
 // SAVE EDITS TO TICKET
 function save() {
   disableEdit();
   // UPDATE TICKET VIA AJAX CALL
+  const ticketNumber = document.getElementById("ticket_number").innerText;
+  const status = document.getElementById("status_field").value;
+  const customerName = document.getElementById("customer_name").value;
+  const phoneNumber = document.getElementById("phone_number").value;
+  const dateReceived = document.getElementById("date_received").value;
+  const assignee = document.getElementById("assigned_to").value;
+  const shortDescription = document.getElementById("short_disc").value;
+  const computerMakeNModel = document.getElementById("computer_make").value;
+  const estComplDate = document.getElementById("est_completion").value;
+  const formFactor = document.getElementById("form_factor").value;
+  const description = document.getElementById("item_desc").value;
+  const location = document.getElementById("location_field").value;
+  const initDiagnosis = document.getElementById("initial_diag").value;
+  const repairNotes = document.getElementById("repair_notes").value;
+  
+  const ticketData = {
+    status,
+    customerName,
+    phoneNumber,
+    dateReceived,
+    assignee,
+    shortDescription,
+    computerMakeNModel,
+    estComplDate,
+    formFactor,
+    description,
+    location,
+    initDiagnosis,
+    repairNotes
+  }
+
+  $.ajax({
+    url: `http://localhost:3000/tickets/${ticketNumber}`,
+    headers: {'Authorization': localStorage.getItem('jwtToken')},
+    data: ticketData,
+    type: 'PUT'
+  })
+  .done((response) => {
+    alert('done with PUT');
+  })
+  .fail((error) => {
+    alert('error with PUT');
+  });
 }
