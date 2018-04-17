@@ -135,7 +135,7 @@ $(document).ready(function () {
       email2: {
         required: true,
         email: true,
-        equalTo: "#signUpForm #email"
+        equalTo: "#sign-email"
       },
       pass: {
         required: true,
@@ -144,7 +144,7 @@ $(document).ready(function () {
       pass2: {
         required: true,
         minlength: 8,
-        equalTo: "#signUpForm #pass"
+        equalTo: "#sign-pass"
       }
     },
     messages: {
@@ -180,34 +180,40 @@ $(document).ready(function () {
   // SIGNUP FORM SUBMIT
   $("#signUpForm").on('submit', function (e) {
     e.preventDefault();
-    const data = {
-      name: $("#signUpForm #name").val(),
-      email: $("#signUpForm #sign-email").val(),
-      password: $("#signUpForm #sign-pass").val()
-    }
-    $.post('https://afternoon-waters-42339.herokuapp.com/signup', data)
-      .done((response) => {
-        const resData = JSON.parse(JSON.stringify(response));
-        const signupMessage = resData.message;
-        const token = resData.token;
-        console.log(signupMessage);
-        localStorage.setItem('jwtToken', token);
-        swal("Signup Successful", {
-          icon: "success",
-          buttons: false,
-        });
-        setTimeout(function () {
-          window.location.href = "dashboard.html"; //will redirect
-        }, 2000); //will call the function after 2 secs.
-      })
-      .fail((error) => {
-        const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
-        console.log(signupErrorMsg);
-        document.getElementById('signUpError').innerHTML = signupErrorMsg;
-        swal("Login Failed",signupErrorMsg, {
-          icon: "error",
-        });
+    if ($("#signUpForm #sign-email").val() !== $("#signUpForm #email2").val() && $("#signUpForm #sign-pass").val() !== $("#signUpForm #pass2").val()) {
+      swal("Login Failed", "Emails or Passwords do not match", {
+        icon: "error",
       });
+    } else {
+      const data = {
+        name: $("#signUpForm #name").val(),
+        email: $("#signUpForm #sign-email").val(),
+        password: $("#signUpForm #sign-pass").val()
+      }
+      $.post('https://afternoon-waters-42339.herokuapp.com/signup', data)
+        .done((response) => {
+          const resData = JSON.parse(JSON.stringify(response));
+          const signupMessage = resData.message;
+          const token = resData.token;
+          console.log(signupMessage);
+          localStorage.setItem('jwtToken', token);
+          swal("Signup Successful", {
+            icon: "success",
+            buttons: false,
+          });
+          setTimeout(function () {
+            window.location.href = "dashboard.html"; //will redirect
+          }, 2000); //will call the function after 2 secs.
+        })
+        .fail((error) => {
+          const signupErrorMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+          console.log(signupErrorMsg);
+          document.getElementById('signUpError').innerHTML = signupErrorMsg;
+          swal("Login Failed", signupErrorMsg, {
+            icon: "error",
+          });
+        });
+    }
   });
 
   // LOGIN FORM SUBMIT
@@ -236,7 +242,7 @@ $(document).ready(function () {
         const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
         console.log(loginErrMsg);
         document.getElementById('loginError').innerHTML = loginErrMsg;
-        swal("Login Failed",loginErrMsg, {
+        swal("Login Failed", loginErrMsg, {
           icon: "error",
         });
       });
