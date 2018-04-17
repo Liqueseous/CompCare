@@ -9,7 +9,7 @@ $(window).on('load', function () {
     if (Array.isArray(response)) {
       for (let i = 0; i < response.length; i++) {
         const { status, customerName, ticketNumber, dateReceived, estComplDate, assignee } = response[i];
-        addActiveOrder(status.toLowerCase(), customerName, ticketNumber, dateReceived, estComplDate, assignee);
+        addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
       }
     }
   })
@@ -79,11 +79,11 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
 
   //Set status image depending on status
   //Put all elements into a row
-  if (circle == "open")
+  if (circle == "Open")
     row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-open.svg></div>");
-  else if (circle == "onHold")
+  else if (circle == "On Hold")
     row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-onHold.svg></div>");
-  else if (circle == "inProgress")
+  else if (circle == "In Progress")
     row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-1\"><img src=./resources/dashboard/circle-inProgress.svg></div>");
 
   row.insertAdjacentHTML('beforeend', "<div class=\"col-sm-2\">" + customer_name + "</div>"); //Customer Name

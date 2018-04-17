@@ -18,7 +18,23 @@ function setupFields(data) {
   } = data;
 
   switch(status) {
-    case 'Open' || 'In Progress':
+    case 'Open':
+      document.getElementById("ticket_number").innerText = ticketNumber;
+      document.getElementById("status_field").value = status;
+      document.getElementById("customer_name").value = customerName;
+      document.getElementById("phone_number").value = phoneNumber;
+      document.getElementById("date_received").value = dateReceived;
+      document.getElementById("assigned_to").value = assignee;
+      document.getElementById("short_disc").value = shortDescription;
+      document.getElementById("computer_make").value = computerMakeNModel;
+      document.getElementById("est_completion").value = estComplDate;
+      document.getElementById("form_factor").value = formFactor;
+      document.getElementById("item_desc").value = description;
+      document.getElementById("location_field").value = location;
+      document.getElementById("initial_diag").value = initDiagnosis;
+      document.getElementById("repair_notes").value = repairNotes;
+      break;
+    case 'In Progress':
       document.getElementById("ticket_number").innerText = ticketNumber;
       document.getElementById("status_field").value = status;
       document.getElementById("customer_name").value = customerName;
@@ -74,6 +90,9 @@ function setupFields(data) {
     default:
       console.log('Order Status Error...');
   }
+
+  changeStatusIcon("status_field", "status_img");
+  
 }
 
 // SET TOOLTIPSTER DEFAULTS
@@ -85,7 +104,6 @@ $.tooltipster.setDefaults({
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
 jQuery(document).ready(function ($) {
-  changeStatusIcon("status_field", "status_img");
   formSetup();
 
   const ticketNum = getAllUrlParams().t;
@@ -115,6 +133,7 @@ jQuery(document).ready(function ($) {
 function changeStatusIcon(listener, icon) {
   var status = document.getElementById(listener);
   var icon = document.getElementById(icon);
+  console.log(status.value);
   if (status.value == "Open") {
     icon.setAttribute("src", "./resources/dashboard/circle-open.svg");
   } else if (status.value == "In Progress") {
