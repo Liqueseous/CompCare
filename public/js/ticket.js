@@ -274,7 +274,6 @@ function isNewTicket() {
 
 // CREATE NEW TICKET IN THE DATABASE
 function createTicket() {
-  alert('TICKET CREATED');
   disableEdit();
   // CREATE TICKET VIA AJAX CALL
   // include ticketNumber
@@ -367,9 +366,9 @@ function save() {
     type: 'PUT'
   })
   .done((response) => {
-    alert('done with PUT');
+    console.log('done with PUT');
   })
   .fail((error) => {
-    alert('error with PUT');
+    console.log('error with PUT');
   });
 }
