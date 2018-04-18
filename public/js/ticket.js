@@ -92,7 +92,7 @@ function setupFields(data) {
   }
 
   changeStatusIcon("status_field", "status_img");
-  
+
 }
 
 // SET TOOLTIPSTER DEFAULTS
@@ -109,7 +109,7 @@ jQuery(document).ready(function ($) {
   const ticketNum = getAllUrlParams().t;
   if (ticketNum !== 'new') {
     $.ajax({
-      url: 'http://localhost:3000/tickets/' + ticketNum,
+      url: 'https://afternoon-waters-42339.herokuapp.com/tickets/' + ticketNum,
       headers: {'Authorization': localStorage.getItem('jwtToken')},
       type: 'GET'
     })
@@ -254,7 +254,7 @@ function isNewTicket() {
   // RETRIEVE USERS LAST REPAIR ID
   let ticketNum = undefined;
   $.ajax({
-    url: 'http://localhost:3000/tickets/',
+    url: 'https://afternoon-waters-42339.herokuapp.com/tickets/',
     headers: {'Authorization': localStorage.getItem('jwtToken')},
     type: 'GET'
   })
@@ -293,6 +293,8 @@ function createTicket() {
   const initDiagnosis = document.getElementById("initial_diag").value;
   const repairNotes = document.getElementById("repair_notes").value;
 
+  console.log(ticketNumber);
+
   const ticketData = {
     status,
     customerName,
@@ -310,7 +312,7 @@ function createTicket() {
   }
 
   $.ajax({
-    url: `http://localhost:3000/tickets/${ticketNumber}`,
+    url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
     headers: {'Authorization': localStorage.getItem('jwtToken')},
     data: ticketData,
     type: 'POST'
@@ -319,8 +321,7 @@ function createTicket() {
     console.log(response);
   })
   .fail((error) => {
-    err = JSON.parse(error);
-    console.log(err);
+    console.log("error");
   });
 }
 
@@ -360,7 +361,7 @@ function save() {
   }
 
   $.ajax({
-    url: `http://localhost:3000/tickets/${ticketNumber}`,
+    url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
     headers: {'Authorization': localStorage.getItem('jwtToken')},
     data: ticketData,
     type: 'PUT'

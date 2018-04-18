@@ -1,7 +1,7 @@
 // Get USER Tickets from API
 $(window).on('load', function () {
   $.ajax({
-    url: 'http://localhost:3000/tickets',
+    url: 'https://afternoon-waters-42339.herokuapp.com/tickets',
     headers: {'Authorization': localStorage.getItem('jwtToken')},
     type: 'GET'
   })
