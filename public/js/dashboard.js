@@ -1,22 +1,31 @@
 // Get USER Tickets from API
 $(window).on('load', function () {
   $.ajax({
-    url: 'https://afternoon-waters-42339.herokuapp.com/tickets',
-    headers: {'Authorization': localStorage.getItem('jwtToken')},
-    type: 'GET'
-  })
-  .done((response) => {
-    if (Array.isArray(response)) {
-      for (let i = 0; i < response.length; i++) {
-        const { status, customerName, ticketNumber, dateReceived, estComplDate, assignee } = response[i];
-        addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
+      url: 'https://afternoon-waters-42339.herokuapp.com/tickets',
+      headers: {
+        'Authorization': localStorage.getItem('jwtToken')
+      },
+      type: 'GET'
+    })
+    .done((response) => {
+      if (Array.isArray(response)) {
+        for (let i = 0; i < response.length; i++) {
+          const {
+            status,
+            customerName,
+            ticketNumber,
+            dateReceived,
+            estComplDate,
+            assignee
+          } = response[i];
+          addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
+        }
       }
-    }
-  })
-  .fail((error) => {
-    const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
-    console.log(loginErrMsg);
-  });
+    })
+    .fail((error) => {
+      const loginErrMsg = JSON.parse(JSON.stringify(error)).responseJSON.error.message;
+      console.log(loginErrMsg);
+    });
 });
 
 // SET TOOLTIPSTER DEFAULTS
@@ -26,11 +35,11 @@ $.tooltipster.setDefaults({
   animation: 'grow',
   trigger: 'click',
   events: {
-    def:     "mouseover,mouseout",
-    label:     "mouseover,mouseout",
-    input:   "focus,blur",
-    select:   "focus,blur",
-    widget:  "focus mouseover,blur mouseout",
+    def: "mouseover,mouseout",
+    label: "mouseover,mouseout",
+    input: "focus,blur",
+    select: "focus,blur",
+    widget: "focus mouseover,blur mouseout",
     tooltip: "mouseover,mouseout"
   }
 });
@@ -45,27 +54,38 @@ jQuery(document).ready(function ($) {
 });
 
 function showOpen() {
-  resetActiveOrders();
+  $('#closedPanel').empty();
   // re-fill in open orders using addActiveOrder()
-
+  $('.Hold').remove();
+  $('.Progress').remove();
+  $('.resetCol').css("display","inline");
 }
 
 function showOnHold() {
-  resetActiveOrders();
+  $('#closedPanel').empty();
   // re-fill in on-hold orders using addActiveOrder()
-
+  $('.Open').remove();
+  $('.Progress').remove();
+  $('.resetCol').css("display","inline");
 }
 
 function showInProgress() {
-  resetActiveOrders();
+  $('#closedPanel').empty();
   // re-fill in in progress orders using addActiveOrder()
-
+  $('.Hold').remove();
+  $('.Open').remove();
+  $('.resetCol').css("display","inline");
 }
 
 function showClosed() {
-  resetClosedOrders();
+  $('#activePanel').empty();
   // re-fill in closed orders using addClosedOrder()
+  $('.resetCol').css("display","inline");
 
+}
+
+function resetDashboard() {
+  location.reload();
 }
 
 //                     str     str            str        str           str              str
@@ -75,7 +95,7 @@ function addActiveOrder(circle, customer_name, repair_id, date_entered, completi
   var anchor = document.createElement("a"); // create anchor
   anchor.setAttribute('href', link); // set anchor href
   var row = document.createElement("div"); // create row
-  row.setAttribute('class', 'row'); // make it a row class
+  row.setAttribute('class', 'row' + ' ' + circle); // make it a row class with its status as a class
 
   //Set status image depending on status
   //Put all elements into a row
@@ -119,24 +139,6 @@ function addClosedOrder(customer_name, repair_id, date_entered, date_closed, res
 
 }
 
-function resetActiveOrders() {
-  var table = document.getElementById("activeOrders");
-  var table_length = table.rows.length;
-
-  for (i = table_length - 1; i > 1; i--) {
-    table.deleteRow(i);
-  }
-}
-
-function resetClosedOrders() {
-  var table = document.getElementById("closedOrders");
-  var table_length = table.rows.length;
-
-  for (i = table_length - 1; i > 1; i--) {
-    table.deleteRow(i);
-  }
-}
-
 // CREATE NEW TICKET
 function newTicket() {
   //retrieve users previous ticket number
@@ -144,7 +146,7 @@ function newTicket() {
   //increment ticket number
   var new_id = 'NEW';
   //set users new last ticket number
-  
+
   //call ticket page with new ticket and its new ticket number
   window.location.href = "./ticket.html?t=" + new_id;
 }

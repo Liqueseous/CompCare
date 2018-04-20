@@ -64,6 +64,27 @@
       <!-- CONTENT SECTION -->
 
       <div class="dashboard container">
+        <!-- ACTIONS PANEL -->
+        <div class="panel actions">
+          <div class="panel-heading">
+            <span class="panel-title">Actions</span>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col">
+                <a href="javascript:newTicket();" alt="New Ticket" class="tipster" title="Create New Ticket">
+                  <button class="btn btn-dark">New Ticket</button>
+                </a>
+              </div>
+              <div class="col resetCol">
+                <a href="javascript:resetDashboard();" alt="Reset Filters" class="tipster" title="Reset Filters">
+                  <button class="btn btn-dark">Reset Filters</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="panel">
           <div class="panel-heading">
             <span class="panel-title">Summary</span>
@@ -110,7 +131,7 @@
           </div>
         </div>
 
-        <div class="panel">
+        <div class="panel" id="activePanel">
           <div class="panel-heading">
             <span class="panel-title">Active Orders</span>
           </div>
@@ -141,7 +162,7 @@
           </div>
         </div>
 
-        <div class="panel">
+        <div class="panel" id="closedPanel">
           <div class="panel-heading">
             <span class="panel-title">Closed Orders</span>
           </div>
@@ -172,11 +193,11 @@
           </div>
         </div>
       </div>
-      <div id="imgright">
+      <!-- <div id="imgright">
         <a href="javascript:newTicket();" alt="New Ticket" class="tipster" title="Create New Ticket">
           <img src=./resources/dashboard/create.svg alt="Add New Ticket">
         </a>
-      </div>
+      </div> -->
       <!-- END CONTENT SECTION -->
       <!-- END CONTAINER -->
       <!-- BEGIN FOOTER -->

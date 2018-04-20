@@ -62,6 +62,27 @@
       <!-- END NAVBAR -->
       <!-- CONTENT SECTION -->
       <div class="container ticket_space">
+        <!-- ACTIONS PANEL -->
+        <div class="panel actions">
+            <div class="panel-heading">
+              <span class="panel-title">Actions</span>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col" id="backButt">
+                    <a href="dashboard" alt="Go Back" class="tipster" title="Back to Dashboard">
+                    <button class="btn btn-dark">Back</button>
+                  </a>
+                </div>
+                <div class="col" id="editButt">
+                    <a href="javascript:enableEdit();" alt="Edit" class="tipster" title="Edit Ticket">
+                    <button class="btn btn-dark">Edit Ticket</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <div class="panel">
           <div class="panel-heading">
             <span class="panel-title ticket_header">Ticket #
@@ -197,7 +218,7 @@
         </div>
       </div>
 
-      <div id="imgleft">
+      <!-- <div id="imgleft">
         <a href="dashboard" alt="Go Back" class="tipster" title="Back to Dashboard">
           <img src=./resources/ticket/back.svg>
         </a>
@@ -207,7 +228,7 @@
         <a href="javascript:enableEdit();" alt="Edit" class="tipster" title="Edit Ticket">
           <img src=./resources/ticket/edit.svg>
         </a>
-      </div>
+      </div> -->
       <!-- END CONTENT SECTION -->
       <!-- END CONTAINER -->
       <!-- BEGIN FOOTER -->

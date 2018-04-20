@@ -190,17 +190,19 @@ function checkForm() {
 
 function enableEdit() {
   $('.tipster').tooltipster('destroy');
-  $('#imgleft > a').attr('href', 'javascript:disableEdit();');
-  $('#imgleft > a').attr('alt', 'Cancel Changes');
-  $('#imgleft > a').attr('class', 'tipster');
-  $('#imgleft > a').attr('title', 'Cancel Changes');
-  $('#imgleft > a > img').attr('src', './resources/ticket/cancel.svg');
+  $('#backButt > a').attr('href', 'javascript:disableEdit();');
+  $('#backButt > a').attr('alt', 'Cancel Changes');
+  $('#backButt > a').attr('class', 'tipster');
+  $('#backButt > a').attr('title', 'Cancel Changes');
+  // $('#imgleft > a > img').attr('src', './resources/ticket/cancel.svg');
+  $('#backButt > a > button').text("Cancel Changes")
 
-  $('#imgright > a').attr('href', 'javascript:save();');
-  $('#imgright > a').attr('alt', 'Save Changes');
-  $('#imgright > a').attr('class', 'tipster');
-  $('#imgright > a').attr('title', 'Save Changes');
-  $('#imgright > a > img').attr('src', './resources/ticket/save.svg');
+  $('#editButt > a').attr('href', 'javascript:save();');
+  $('#editButt > a').attr('alt', 'Save Changes');
+  $('#editButt > a').attr('class', 'tipster');
+  $('#editButt > a').attr('title', 'Save Changes');
+  // $('#imgright > a > img').attr('src', './resources/ticket/save.svg');
+  $('#editButt > a > button').text("Save Changes")
 
   var inputs = document.querySelectorAll("input, select, textarea")
   var labels = document.querySelectorAll(".form-group label")
@@ -216,23 +218,25 @@ function enableEdit() {
 
 function disableEdit() {
   $('.tipster').tooltipster('destroy');
-  $('#imgleft > a').removeAttr('title');
-  $('#imgleft > a').removeAttr('class');
-  $('#imgleft > a').removeAttr('alt');
-  $('#imgleft > a').attr('href', 'dashboard.html');
-  $('#imgleft > a').attr('alt', 'Go Back');
-  $('#imgleft > a').attr('class', 'tipster');
-  $('#imgleft > a').attr('title', 'Back to Dashboard');
-  $('#imgleft > a > img').attr('src', './resources/ticket/back.svg');
+  $('#backButt > a').removeAttr('title');
+  $('#backButt > a').removeAttr('class');
+  $('#backButt > a').removeAttr('alt');
+  $('#backButt > a').attr('href', 'dashboard.html');
+  $('#backButt > a').attr('alt', 'Go Back');
+  $('#backButt > a').attr('class', 'tipster');
+  $('#backButt > a').attr('title', 'Back to Dashboard');
+  // $('#imgleft > a > img').attr('src', './resources/ticket/back.svg');
+  $('#backButt > a > button').text("Back")
 
-  $('#imgright > a').removeAttr('title');
-  $('#imgright > a').removeAttr('class');
-  $('#imgright > a').removeAttr('alt');
-  $('#imgright > a').attr('href', 'javascript:enableEdit();');
-  $('#imgright > a').attr('alt', 'Edit Ticket');
-  $('#imgright > a').attr('class', 'tipster');
-  $('#imgright > a').attr('title', 'Edit Ticket');
-  $('#imgright > a > img').attr('src', './resources/ticket/edit.svg');
+  $('#editButt > a').removeAttr('title');
+  $('#editButt > a').removeAttr('class');
+  $('#editButt > a').removeAttr('alt');
+  $('#editButt > a').attr('href', 'javascript:enableEdit();');
+  $('#editButt > a').attr('alt', 'Edit Ticket');
+  $('#editButt > a').attr('class', 'tipster');
+  $('#editButt > a').attr('title', 'Edit Ticket');
+  // $('#imgright > a > img').attr('src', './resources/ticket/edit.svg');
+  $('#editButt > a > button').text("Edit Ticket")
 
   var inputs = document.querySelectorAll("input, select, textarea");
   var labels = document.querySelectorAll(".form-group label");
@@ -249,8 +253,10 @@ function disableEdit() {
 // TICKET IS NEW LETS UPDATE THE SAVE BUTTON
 function isNewTicket() {
   enableEdit();
-  $('#imgleft > a').attr('href', 'dashboard.html');
-  $('#imgright > a').attr('href', 'javascript:createTicket();');
+  $('#backButt > a').attr('href', 'dashboard.html');
+  $('#editButt > a').attr('href', 'javascript:createTicket();')
+  $('#editButt > a > button').text("Create Ticket")
+  
   // RETRIEVE USERS LAST REPAIR ID
   let ticketNum = undefined;
   $.ajax({
