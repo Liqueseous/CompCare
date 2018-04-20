@@ -1,5 +1,8 @@
 // Get USER Tickets from API
 $(window).on('load', function () {
+  // LOAD TOOLTIPSTER PLUGIN
+  $('.tipster').tooltipster();
+
   $.ajax({
       url: 'https://afternoon-waters-42339.herokuapp.com/tickets',
       headers: {
@@ -58,7 +61,7 @@ function showOpen() {
   // re-fill in open orders using addActiveOrder()
   $('.Hold').remove();
   $('.Progress').remove();
-  $('.resetCol').css("display","inline");
+  $('.resetCol').css("display", "inline");
 }
 
 function showOnHold() {
@@ -66,7 +69,7 @@ function showOnHold() {
   // re-fill in on-hold orders using addActiveOrder()
   $('.Open').remove();
   $('.Progress').remove();
-  $('.resetCol').css("display","inline");
+  $('.resetCol').css("display", "inline");
 }
 
 function showInProgress() {
@@ -74,19 +77,20 @@ function showInProgress() {
   // re-fill in in progress orders using addActiveOrder()
   $('.Hold').remove();
   $('.Open').remove();
-  $('.resetCol').css("display","inline");
+  $('.resetCol').css("display", "inline");
 }
 
 function showClosed() {
   $('#activePanel').empty();
   // re-fill in closed orders using addClosedOrder()
-  $('.resetCol').css("display","inline");
+  $('.resetCol').css("display", "inline");
 
 }
 
 function resetDashboard() {
   location.reload();
 }
+
 
 //                     str     str            str        str           str              str
 function addActiveOrder(circle, customer_name, repair_id, date_entered, completion_time, tech) {

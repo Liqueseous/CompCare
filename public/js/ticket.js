@@ -195,14 +195,14 @@ function enableEdit() {
   $('#backButt > a').attr('class', 'tipster');
   $('#backButt > a').attr('title', 'Cancel Changes');
   // $('#imgleft > a > img').attr('src', './resources/ticket/cancel.svg');
-  $('#backButt > a > button').text("Cancel Changes")
+  $('#backButt > a > button').html("<i class='fas fa-times'></i> Cancel Changes")
 
   $('#editButt > a').attr('href', 'javascript:save();');
   $('#editButt > a').attr('alt', 'Save Changes');
   $('#editButt > a').attr('class', 'tipster');
   $('#editButt > a').attr('title', 'Save Changes');
   // $('#imgright > a > img').attr('src', './resources/ticket/save.svg');
-  $('#editButt > a > button').text("Save Changes")
+  $('#editButt > a > button').html(" <i class='fas fa-save'></i> Save Changes")
 
   var inputs = document.querySelectorAll("input, select, textarea")
   var labels = document.querySelectorAll(".form-group label")
@@ -226,7 +226,7 @@ function disableEdit() {
   $('#backButt > a').attr('class', 'tipster');
   $('#backButt > a').attr('title', 'Back to Dashboard');
   // $('#imgleft > a > img').attr('src', './resources/ticket/back.svg');
-  $('#backButt > a > button').text("Back")
+  $('#backButt > a > button').html(" <i class='fas fa-chevron-left'></i> Back")
 
   $('#editButt > a').removeAttr('title');
   $('#editButt > a').removeAttr('class');
@@ -236,7 +236,7 @@ function disableEdit() {
   $('#editButt > a').attr('class', 'tipster');
   $('#editButt > a').attr('title', 'Edit Ticket');
   // $('#imgright > a > img').attr('src', './resources/ticket/edit.svg');
-  $('#editButt > a > button').text("Edit Ticket")
+  $('#editButt > a > button').html("<i class='far fa-edit'></i> Edit Ticket")
 
   var inputs = document.querySelectorAll("input, select, textarea");
   var labels = document.querySelectorAll(".form-group label");
@@ -255,7 +255,7 @@ function isNewTicket() {
   enableEdit();
   $('#backButt > a').attr('href', 'dashboard.html');
   $('#editButt > a').attr('href', 'javascript:createTicket();')
-  $('#editButt > a > button').text("Create Ticket")
+  $('#editButt > a > button').html("<i class='fas fa-plus'></i> Create Ticket")
   
   // RETRIEVE USERS LAST REPAIR ID
   let ticketNum = undefined;
@@ -324,6 +324,7 @@ function createTicket() {
   })
   .done((response) => {
     console.log(response);
+    window.location = '/dashboard.html';
   })
   .fail((error) => {
     console.log(error.responseText);
@@ -373,6 +374,7 @@ function save() {
   })
   .done((response) => {
     console.log('done with PUT');
+    window.location = '/dashboard.html';
   })
   .fail((error) => {
     console.log('error with PUT');
