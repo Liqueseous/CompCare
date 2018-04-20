@@ -7,3 +7,4 @@ public/resources/.DS_Store
 public/resources/dashboard/.DS_Store
 public/resources/logo/.DS_Store
 public/resources/ticket/.DS_Store
+package-lock.json
