@@ -21,7 +21,13 @@ $(window).on('load', function () {
             estComplDate,
             assignee
           } = response[i];
-          addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
+          if (status !== 'Closed') {
+            addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
+          }
+          else {
+            const { resolutionCode } = response[i];
+            addClosedOrder(customerName, ticketNumber, dateReceived, estComplDate, resolutionCode);
+          }
         }
       }
     })

@@ -1,6 +1,6 @@
 // Set up fields
 function setupFields(data) {
-  const {
+  let {
     ticketNumber,
     status,
     customerName,
@@ -51,7 +51,7 @@ function setupFields(data) {
       document.getElementById("repair_notes").value = repairNotes;
       break;
     case 'On Hold':
-      const { partsNeeded, holdReason } = data;
+      let { partsNeeded, holdReason } = data;
       document.getElementById("ticket_number").innerText = ticketNumber;
       document.getElementById("status_field").value = status;
       document.getElementById("customer_name").value = customerName;
@@ -70,7 +70,7 @@ function setupFields(data) {
       document.getElementById("repair_notes").value = repairNotes;
       break;
     case 'Closed':
-      const { resolutionCode } = data;
+      let { resolutionCode } = data;
       document.getElementById("ticket_number").innerText = ticketNumber;
       document.getElementById("status_field").value = status;
       document.getElementById("customer_name").value = customerName;
@@ -106,7 +106,7 @@ $.tooltipster.setDefaults({
 jQuery(document).ready(function ($) {
   formSetup();
 
-  const ticketNum = getAllUrlParams().t;
+  let ticketNum = getAllUrlParams().t;
   if (ticketNum !== 'new') {
     $.ajax({
       url: 'https://afternoon-waters-42339.herokuapp.com/tickets/' + ticketNum,
@@ -283,8 +283,10 @@ function createTicket() {
   disableEdit();
   // CREATE TICKET VIA AJAX CALL
   // include ticketNumber
-  const ticketNumber = document.getElementById("ticket_number").innerText.toString();
+
   const status = document.getElementById("status_field").value;
+
+  const ticketNumber = document.getElementById("ticket_number").innerText.toString();
   const customerName = document.getElementById("customer_name").value;
   const phoneNumber = document.getElementById("phone_number").value;
   const dateReceived = document.getElementById("date_received").value;
@@ -297,8 +299,6 @@ function createTicket() {
   const location = document.getElementById("location_field").value;
   const initDiagnosis = document.getElementById("initial_diag").value;
   const repairNotes = document.getElementById("repair_notes").value;
-
-  console.log(ticketNumber);
 
   const ticketData = {
     status,
@@ -316,27 +316,86 @@ function createTicket() {
     repairNotes
   }
 
-  $.ajax({
-    url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
-    headers: {'Authorization': localStorage.getItem('jwtToken')},
-    data: ticketData,
-    type: 'POST'
-  })
-  .done((response) => {
-    console.log(response);
-    window.location = '/dashboard.html';
-  })
-  .fail((error) => {
-    console.log(error.responseText);
-  });
+  switch (status) {
+    case 'Open':
+      $.ajax({
+        url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        data: ticketData,
+        type: 'POST'
+      })
+      .done((response) => {
+        console.log(response);
+        window.location = '/dashboard.html';
+      })
+      .fail((error) => {
+        console.log(error.responseText);
+      });
+      break;
+    case 'In Progress':
+      $.ajax({
+        url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        data: ticketData,
+        type: 'POST'
+      })
+      .done((response) => {
+        console.log(response);
+        window.location = '/dashboard.html';
+      })
+      .fail((error) => {
+        console.log(error.responseText);
+      });
+      break;
+    case 'On Hold':
+      ticketData.partsNeeded = document.getElementById("parts_needed").value;
+      ticketData.holdReason = document.getElementById("reason_for_hold").value;
+      $.ajax({
+        url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        data: ticketData,
+        type: 'POST'
+      })
+      .done((response) => {
+        console.log(response);
+        window.location = '/dashboard.html';
+      })
+      .fail((error) => {
+        console.log(error.responseText);
+      });
+      break;
+      case 'Closed':
+      let elt = document.getElementById("res_code");
+      if (elt.selectedIndex == -1) console.log('gotta select an index');
+      else {
+        ticketData.resolutionCode = elt.options[elt.selectedIndex].text;  
+        $.ajax({
+          url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+          headers: {'Authorization': localStorage.getItem('jwtToken')},
+          data: ticketData,
+          type: 'POST'
+        })
+        .done((response) => {
+          console.log(response);
+          window.location = '/dashboard.html';
+        })
+        .fail((error) => {
+          console.log(error.responseText);
+        });
+      }
+      break;
+    default:
+      console.log('Error with grabbing form data in createTicket()');
+  }
 }
 
 // SAVE EDITS TO TICKET
 function save() {
   disableEdit();
   // UPDATE TICKET VIA AJAX CALL
-  const ticketNumber = document.getElementById("ticket_number").innerText;
   const status = document.getElementById("status_field").value;
+
+  const ticketNumber = document.getElementById("ticket_number").innerText.toString();
   const customerName = document.getElementById("customer_name").value;
   const phoneNumber = document.getElementById("phone_number").value;
   const dateReceived = document.getElementById("date_received").value;
@@ -349,7 +408,7 @@ function save() {
   const location = document.getElementById("location_field").value;
   const initDiagnosis = document.getElementById("initial_diag").value;
   const repairNotes = document.getElementById("repair_notes").value;
-  
+
   const ticketData = {
     status,
     customerName,
@@ -366,17 +425,75 @@ function save() {
     repairNotes
   }
 
-  $.ajax({
-    url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
-    headers: {'Authorization': localStorage.getItem('jwtToken')},
-    data: ticketData,
-    type: 'PUT'
-  })
-  .done((response) => {
-    console.log('done with PUT');
-    window.location = '/dashboard.html';
-  })
-  .fail((error) => {
-    console.log('error with PUT');
-  });
+  switch (status) {
+    case 'Open':
+      $.ajax({
+        url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        data: ticketData,
+        type: 'PUT'
+      })
+      .done((response) => {
+        console.log(response);
+        window.location = '/dashboard.html';
+      })
+      .fail((error) => {
+        console.log(error.responseText);
+      });
+      break;
+    case 'In Progress':
+      $.ajax({
+        url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        data: ticketData,
+        type: 'PUT'
+      })
+      .done((response) => {
+        console.log(response);
+        window.location = '/dashboard.html';
+      })
+      .fail((error) => {
+        console.log(error.responseText);
+      });
+      break;
+    case 'On Hold':
+      ticketData.partsNeeded = document.getElementById("parts_needed").value;
+      ticketData.holdReason = document.getElementById("reason_for_hold").value;
+      $.ajax({
+        url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        data: ticketData,
+        type: 'PUT'
+      })
+      .done((response) => {
+        console.log(response);
+        window.location = '/dashboard.html';
+      })
+      .fail((error) => {
+        console.log(error.responseText);
+      });
+      break;
+    case 'Closed':
+      let elt = document.getElementById("res_code");
+      if (elt.selectedIndex == -1) console.log('gotta select an index');
+      else {
+        ticketData.resolutionCode = elt.options[elt.selectedIndex].text;  
+        $.ajax({
+          url: `https://afternoon-waters-42339.herokuapp.com/tickets/${ticketNumber}`,
+          headers: {'Authorization': localStorage.getItem('jwtToken')},
+          data: ticketData,
+          type: 'PUT'
+        })
+        .done((response) => {
+          console.log(response);
+          window.location = '/dashboard.html';
+        })
+        .fail((error) => {
+          console.log(error.responseText);
+        });
+      }
+      break;
+    default:
+      console.log('Error with grabbing form data in createTicket()');
+  }
 }
