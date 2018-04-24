@@ -104,7 +104,6 @@ $.tooltipster.setDefaults({
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
 jQuery(document).ready(function ($) {
-  formSetup();
 
   let ticketNum = getAllUrlParams().t;
   if (ticketNum !== 'new') {
@@ -115,6 +114,7 @@ jQuery(document).ready(function ($) {
     })
     .done((response) => {
       setupFields(response);
+      formSetup();
     })
     .fail((error) => {
       console.log(error);
