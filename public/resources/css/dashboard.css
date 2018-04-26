@@ -75,6 +75,26 @@ textarea #parts {
   height: 20px;
 }
 
+.radio.active .card-style{
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+}
+
+.act-header.active,
+.clos-header.active { 
+  font-weight: 700;
+}
+
+.act-header:hover,
+.clos-header:hover {
+  text-decoration: underline;
+}
+
+#closedPanel a {
+  color: #000;
+}
+
 #pagecontent {
   height: 100%;
 }
