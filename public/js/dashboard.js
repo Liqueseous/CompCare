@@ -1,3 +1,5 @@
+const allTickets = [];
+
 // Get USER Tickets from API
 $(window).on('load', function () {
   // LOAD TOOLTIPSTER PLUGIN
@@ -19,14 +21,22 @@ $(window).on('load', function () {
             ticketNumber,
             dateReceived,
             estComplDate,
-            assignee
+            assignee,
+            resolutionCode
           } = response[i];
+          const ticket = { 
+            status,
+            customerName,
+            ticketNumber,
+            dateReceived,
+            estComplDate,
+            assignee,
+            resolutionCode
+          }
+          allTickets.push(ticket);
           if (status !== 'Closed') {
             addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
           } else {
-            const {
-              resolutionCode
-            } = response[i];
             addClosedOrder(customerName, ticketNumber, dateReceived, estComplDate, resolutionCode);
           }
         }
@@ -124,7 +134,150 @@ $('.radio').click(function () {
 $('.act-header').click(function () {
   //IF ALREADY ACTIVE
   //DO SORTING
+  if($(this).hasClass('active')) {
+    $(this).removeClass('active')
+    resetActiveSort();
+  } else {
+    $('.act-header').removeClass('active');
+    $(this).addClass('active');
+    activeSort();
+  }
 });
+
+$('.clos-header').click(function () {
+  //IF ALREADY ACTIVE
+  //DO SORTING
+  if($(this).hasClass('active')) {
+    $(this).removeClass('active')
+    resetClosedSort();
+  } else {
+    $('.clos-header').removeClass('active');
+    $(this).addClass('active');
+    closedSort();
+  }
+});
+
+function activeSort() {
+  let sortedTickets = allTickets.filter(ticket => ticket.status !== 'Closed');
+  $('#activeOrders').empty();  
+  if($('.status.act-header.active').length) {
+    sortedTickets.sort(function(a, b) {    
+      if (a.status > b.status) return 1;
+      if (a.status < b.status) return -1;
+      return 0;
+    });
+  }
+  else if($('.cx.act-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if ((a.customerName.toLowerCase()) > (b.customerName.toLowerCase())) return 1;
+      if ((a.customerName.toLowerCase()) < (b.customerName.toLowerCase())) return -1;
+      return 0;
+    });
+  }
+  else if($('.id.act-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if (a.ticketNumber > b.ticketNumber) return 1;
+      if (a.ticketNumber < b.ticketNumber) return -1;
+      return 0;
+    });
+  }
+  else if($('.dEntered.act-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if (a.dateReceived.split('-').join('') > b.dateReceived.split('-').join('')) return 1;
+      if (a.dateReceived.split('-').join('') < b.dateReceived.split('-').join('')) return -1;
+      return 0;
+    });
+  }
+  else if($('.ttc.act-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if (a.estComplDate.split('-').join('') > b.estComplDate.split('-').join('')) return 1;
+      if (a.estComplDate.split('-').join('') < b.estComplDate.split('-').join('')) return -1;
+      return 0;
+    });
+  }
+  else if($('.tech.act-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if ((a.assignee.toLowerCase()) > (b.assignee.toLowerCase())) return 1;
+      if ((a.assignee.toLowerCase()) < (b.assignee.toLowerCase())) return -1;
+      return 0;
+    });
+  }
+  for (let i = 0; i < sortedTickets.length; i++) {
+    if (sortedTickets[i].status !== 'Closed') {
+      addActiveOrder(sortedTickets[i].status, sortedTickets[i].customerName, sortedTickets[i].ticketNumber, sortedTickets[i].dateReceived, sortedTickets[i].estComplDate, sortedTickets[i].assignee);
+    }
+  }
+}
+
+function resetActiveSort() {
+  $('#activeOrders').empty();
+  for (let i = 0; i < allTickets.length; i++) {
+    if (allTickets[i].status !== 'Closed') {
+      addActiveOrder(allTickets[i].status, allTickets[i].customerName, allTickets[i].ticketNumber, allTickets[i].dateReceived, allTickets[i].estComplDate, allTickets[i].assignee);
+    }
+  }
+}
+
+function closedSort() {
+  let sortedTickets = allTickets.filter(ticket => ticket.status === 'Closed');
+  $('#closedOrders').empty();  
+  if($('.status.clos-header.active').length) {
+    sortedTickets.sort(function(a, b) {    
+      if (a.status > b.status) return 1;
+      if (a.status < b.status) return -1;
+      return 0;
+    });
+  }
+  else if($('.cx.clos-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if ((a.customerName.toLowerCase()) > (b.customerName.toLowerCase())) return 1;
+      if ((a.customerName.toLowerCase()) < (b.customerName.toLowerCase())) return -1;
+      return 0;
+    });
+  }
+  else if($('.id.clos-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if (a.ticketNumber > b.ticketNumber) return 1;
+      if (a.ticketNumber < b.ticketNumber) return -1;
+      return 0;
+    });
+  }
+  else if($('.dEntered.clos-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if (a.dateReceived.split('-').join('') > b.dateReceived.split('-').join('')) return 1;
+      if (a.dateReceived.split('-').join('') < b.dateReceived.split('-').join('')) return -1;
+      return 0;
+    });
+  }
+  else if($('.dClosed.clos-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if (a.estComplDate.split('-').join('') > b.estComplDate.split('-').join('')) return 1;
+      if (a.estComplDate.split('-').join('') < b.estComplDate.split('-').join('')) return -1;
+      return 0;
+    });
+  }
+  else if($('.res.clos-header.active').length) {
+    sortedTickets.sort(function(a, b) {
+      if ((a.resolutionCode.toLowerCase()) > (b.resolutionCode.toLowerCase())) return 1;
+      if ((a.resolutionCode.toLowerCase()) < (b.resolutionCode.toLowerCase())) return -1;
+      return 0;
+    });
+  }
+  for (let i = 0; i < sortedTickets.length; i++) {
+    if (sortedTickets[i].status === 'Closed') {
+      addClosedOrder(sortedTickets[i].customerName, sortedTickets[i].ticketNumber, sortedTickets[i].dateReceived, sortedTickets[i].estComplDate, sortedTickets[i].resolutionCode);
+    }
+  }
+}
+
+function resetClosedSort() {
+  $('#closedOrders').empty();  
+  for (let i = 0; i < allTickets.length; i++) {
+    if (allTickets[i].status === 'Closed') {
+      addClosedOrder(allTickets[i].customerName, allTickets[i].ticketNumber, allTickets[i].dateReceived, allTickets[i].estComplDate, allTickets[i].resolutionCode);
+    }
+  }
+}
 
 function resetFilters() {
   $('#closedPanel').show();
