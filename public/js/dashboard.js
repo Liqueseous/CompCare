@@ -42,7 +42,7 @@ $.tooltipster.setDefaults({
   side: ['left', 'right', 'top'],
   theme: 'tooltipster-shadow',
   animation: 'grow',
-  trigger: 'click',
+  trigger: 'hover',
   events: {
     def: "mouseover,mouseout",
     label: "mouseover,mouseout",
@@ -55,12 +55,26 @@ $.tooltipster.setDefaults({
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
 jQuery(document).ready(function ($) {
-  $(".clickable-row").click(function () {
-    window.location = $(this).data("href");
-  });
-  // LOAD TOOLTIPSTER PLUGIN
-  $('.tipster').tooltipster();
+  if (localStorage.getItem('jwtToken') === null) {
+    window.location.href = "index";
+  } else {
+    $(".clickable-row").click(function () {
+      window.location = $(this).data("href");
+    });
+  }
 });
+
+function signOut() {
+  console.log('got here');
+  localStorage.removeItem('jwtToken');
+  swal("Logout Successful", {
+    icon: "info",
+    buttons: false,
+  });
+  setTimeout(function () {
+    window.location.href = "index"; //will redirect
+  }, 2000);
+}
 
 function showOpen() {
   $('#closedPanel').empty();

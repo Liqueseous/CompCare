@@ -104,30 +104,34 @@ $.tooltipster.setDefaults({
 
 // DOCUMENT INFORMATION HAS BEEN RECEIVED
 jQuery(document).ready(function ($) {
+  if (localStorage.getItem('jwtToken') === null) {
+    window.location.href = "index";
+  } else {
+    formSetup();
+    let ticketNum = getAllUrlParams().t;
+    if (ticketNum !== 'new') {
+      $.ajax({
+        url: 'https://afternoon-waters-42339.herokuapp.com/tickets/' + ticketNum,
+        headers: {'Authorization': localStorage.getItem('jwtToken')},
+        type: 'GET'
+      })
+      .done((response) => {
+        setupFields(response);
+        formSetup();
+      })
+      .fail((error) => {
+        console.log(error);
+      });
+    }
 
-  let ticketNum = getAllUrlParams().t;
-  if (ticketNum !== 'new') {
-    $.ajax({
-      url: 'https://afternoon-waters-42339.herokuapp.com/tickets/' + ticketNum,
-      headers: {'Authorization': localStorage.getItem('jwtToken')},
-      type: 'GET'
-    })
-    .done((response) => {
-      setupFields(response);
-      formSetup();
-    })
-    .fail((error) => {
-      console.log(error);
-    });
+    // LOAD TOOLTIPSTER PLUGIN
+    $('.tipster').tooltipster();
+
+    // CHECK IF NEW TICKET
+    if (ticketNum == 'new') {
+      isNewTicket();
+    };
   }
-
-  // LOAD TOOLTIPSTER PLUGIN
-  $('.tipster').tooltipster();
-
-  // CHECK IF NEW TICKET
-  if (ticketNum == 'new') {
-    isNewTicket();
-  };
 });
 
 function changeStatusIcon(listener, icon) {
@@ -276,6 +280,18 @@ function isNewTicket() {
   .fail((error) => {
     console.log(error);
   });
+}
+
+function signOut() {
+  console.log('got here');
+  localStorage.removeItem('jwtToken');
+  swal("Logout Successful", {
+    icon: "info",
+    buttons: false,
+  });
+  setTimeout(function () {
+    window.location.href = "index"; //will redirect
+  }, 2000);
 }
 
 // CREATE NEW TICKET IN THE DATABASE
