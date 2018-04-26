@@ -23,9 +23,10 @@ $(window).on('load', function () {
           } = response[i];
           if (status !== 'Closed') {
             addActiveOrder(status, customerName, ticketNumber, dateReceived, estComplDate, assignee);
-          }
-          else {
-            const { resolutionCode } = response[i];
+          } else {
+            const {
+              resolutionCode
+            } = response[i];
             addClosedOrder(customerName, ticketNumber, dateReceived, estComplDate, resolutionCode);
           }
         }
@@ -76,35 +77,54 @@ function signOut() {
   }, 2000);
 }
 
-function showOpen() {
-  $('#closedPanel').empty();
-  // re-fill in open orders using addActiveOrder()
-  $('.Hold').remove();
-  $('.Progress').remove();
-  $('.resetCol').css("display", "inline");
+// FILTER TICKETS
+function filter() {
+  if ($('#filOpen.active').length) {
+    //IF FILTER OPEN ONLY SHOW OPEN
+    resetFilters();
+    $('#closedPanel').hide();
+    $('.Hold').hide();
+    $('.Progress').hide();
+    $('.resetCol').css("display", "inline");
+  } else if ($('#filHold.active').length) {
+    //IF FILTER HOLD ONLY SHOW ONHOLD
+    resetFilters();
+    $('#closedPanel').hide();
+    $('.Open').hide();
+    $('.Progress').hide();
+    $('.resetCol').css("display", "inline");
+  } else if ($('#filProgress.active').length) {
+    //IF FILTER PROGRESS ONLY SHOW IN PROGRESS
+    resetFilters();
+    $('#closedPanel').hide();
+    $('.Hold').hide();
+    $('.Open').hide();
+    $('.resetCol').css("display", "inline");
+  } else if ($('#filClosed.active').length) {
+    //IF FILTER CLOSED ONLY SHOW CLOSED
+    resetFilters();
+    $('#activePanel').hide();
+    $('.resetCol').css("display", "inline");
+  }
 }
 
-function showOnHold() {
-  $('#closedPanel').empty();
-  // re-fill in on-hold orders using addActiveOrder()
-  $('.Open').remove();
-  $('.Progress').remove();
-  $('.resetCol').css("display", "inline");
-}
+$('.radio').click(function () {
+  if($(this).hasClass('active')) {
+    $(this).removeClass('active')
+    resetFilters();
+  } else {
+    $('.radio').removeClass('active');
+    $(this).addClass('active');
+    filter();
+  }
+});
 
-function showInProgress() {
-  $('#closedPanel').empty();
-  // re-fill in in progress orders using addActiveOrder()
-  $('.Hold').remove();
-  $('.Open').remove();
-  $('.resetCol').css("display", "inline");
-}
-
-function showClosed() {
-  $('#activePanel').empty();
-  // re-fill in closed orders using addClosedOrder()
-  $('.resetCol').css("display", "inline");
-
+function resetFilters() {
+  $('#closedPanel').show();
+  $('#activePanel').show();
+  $('.Open').show();
+  $('.Progress').show();
+  $('.Hold').show();
 }
 
 function resetDashboard() {
