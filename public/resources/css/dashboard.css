@@ -86,6 +86,15 @@ textarea #parts {
   font-weight: 700;
 }
 
+.act-header:hover,
+.clos-header:hover {
+  text-decoration: underline;
+}
+
+#closedPanel a {
+  color: #000;
+}
+
 #pagecontent {
   height: 100%;
 }

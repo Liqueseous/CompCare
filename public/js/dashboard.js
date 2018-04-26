@@ -4,6 +4,9 @@ const allTickets = [];
 $(window).on('load', function () {
   // LOAD TOOLTIPSTER PLUGIN
   $('.tipster').tooltipster();
+  $('.tipster-top').tooltipster( {
+    side: ['top'],
+  });
 
   $.ajax({
       url: 'https://afternoon-waters-42339.herokuapp.com/tickets',
