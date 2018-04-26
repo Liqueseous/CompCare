@@ -108,7 +108,9 @@ function filter() {
   }
 }
 
+//FILTER BUTTON CLICKED
 $('.radio').click(function () {
+  //IF ALREADY ACTIVE
   if($(this).hasClass('active')) {
     $(this).removeClass('active')
     resetFilters();
@@ -117,6 +119,11 @@ $('.radio').click(function () {
     $(this).addClass('active');
     filter();
   }
+});
+
+$('.act-header').click(function () {
+  //IF ALREADY ACTIVE
+  //DO SORTING
 });
 
 function resetFilters() {
